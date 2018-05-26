@@ -1,0 +1,33 @@
+! version = 2.0
+! sub who's = who is
+! sub where's = where is
+!sub Nono = nono
+
+// if not the other previous words : hello, mask, nono> sensor?
++ *
+- Who's there?
+
+// This matches anything where the "previous" computer phrase was "who is there"
++ *
+% who is there
+- hello <star1>, tell me are you a node
+
+// This matches anything where the "previous" phrase was "node"
++ *
+% * node
+- where is your mask
+
+// This matches anything where the "previous" phrase was "node" and answer is "no" will go back to who is there
++ [*]no[*]
+% * node
+- put your mask on
+
+
++ [*][*]*
+% where is your mask
+- why did you put your mask on your <star1>, Nono
+
+// This matches anything where the "previous" phrase was "nono"
++ [*][*]*
+% [*]nono
+- that is so funny ! take of your mask <star1> and let s play nono together!
