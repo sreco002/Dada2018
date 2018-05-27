@@ -2,12 +2,16 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/v0CHV33wDsI
-
+//global variable
 let speech;
 let voices, voice;
+let txt, index, sentence,phrase;
+
 function setup() {
+
   createCanvas(400, 100);
   background(0);
+  txt = loadStrings("nodeMaskText.txt");
 
   speech = new p5.Speech(); // speech synthesis object
   speech.onLoad = voiceReady;
@@ -32,21 +36,30 @@ function setup() {
 function mousePressed() {
   voices = speech.voices;
   voice = random(voices);
-  console.log(random(voices));
+  console.log(voice);
    speech.setRate(0.7);
    speech.setPitch(0.8);
-  speech.setVoice('voice.name');
+  speech.setVoice(voice.name);
   //speech.setVoice('Samantha'); // good voice with rate 0.7 and pitch 0.8
-  var txt;
-  txt = loadStrings("nodeMaskText.js");
-//  speech.speak(' Do I  love you?'); // say something
+  // voice electro Cellos
+
+  //speech.speak(' stay cooool'); // say something
+  index = Math.floor((Math.random()*txt.length));
+  phrase = txt[index];
+  speech.speak (phrase); // say something from the node txt
 //  speech.speak(' Do I know you? I am the mask dada data'); // say something
-  speech.speak(txt[1]); // say something
 
 }
 
 function loadText(){
   var txt;
-  txt = loadStrings("nodeMaskText.js");
+  txt = loadStrings("nodeMaskText.txt");
   console.log(txt);
+  }
+  function returnSentence(){
+  //  index = Math.floor((Math.random()*txt.length));
+    index = 5;
+    phrase = txt[index];
+    console.log(phrase);
+    return phrase;
   }
