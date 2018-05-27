@@ -1,6 +1,6 @@
 var txt;
 function preload(){
-txt = loadStrings("nodeMaskText.js");
+txt = loadStrings("nodeMaskText.txt");
 
 }
 function setup(){
