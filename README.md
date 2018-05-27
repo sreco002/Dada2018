@@ -1,37 +1,18 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/sreco002/Dada2018/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+  
+# Dada2018 Automata
+<p> Practice based research academic year 2017/2018 at Goldsmiths University in London</p>
+<p>MFA in computational art final year</p>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+This installation illustrates how, like masks, networks frame, mirror, mediate, catalyse , transform, reveal or hide. While staging the entanglement between machines and humans, I rely on my exploration of the ubiquitous Network as an anthropomorphic frame [Napier, A. (1996). Foreign bodies : Performance, art, and symbolic anthropology. Berkeley: University of California Press.] and on Jacques Lacan’s theorisation of the gaze ” Spectators perceive the effects of the gaze because their estranged screen representations allow them to momentarily see themselves as objects “[K .Mondloch. Screens, Viewing Media Installation Art, University of Minnesota, 2010, pp 29]. The artwork , made of textile sculptures, and artefacts tune itself with data and provides to the visitor a physical environment to his digital presence.
+ 
+I am inspired by the definition adopted from GAS (Drossos et al 2007) about “Artifacts : Tangible objects that can express their properties digitally”. Artifacts can be simpler composite, from a single sensor to an augmented building, from tagged objects to systems and infrastructures elements as recalled by Irene Mavrommati.[U.Ekman, J.D.Bolter, L.Díaz, M.Søndergaard, M.Engberg Eds, Ubiquitous Computing, Complexity and Culture, New York, Routledge, 2016, pp 135].
+The installation is a tangible outcome celebrating how human beings and machines affect each other. The interaction via twitter, occurs in a loop between the visitor and the crafted electronic “nodes”, between physical and digital manipulation. Fed by data, the network of artifacts is tuning itself. Their bodies are made of electronic textile and hard material and a combination of traditional craftsmanship and new technology making. The nodes are connected with the world with sensors and surveillance-camera. When “alone”, the artefacts are moving in response to data feed and to each other moves ["The way the things go by Fischli &Weiss" , video available at <https://www.nytimes.com/video/movies/100000003611613/the-way-things-go.html]. 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Material : 
+Wood, electronics, wire, wool, metal, webcam
+Technical requirement : 
+Installation on a flat surface 1m x 0.75m
+Access to Power supply 220V
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sreco002/Dada2018/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
