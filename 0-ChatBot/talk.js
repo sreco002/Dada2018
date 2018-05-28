@@ -2,16 +2,17 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/v0CHV33wDsI
+/* output random voices and random text from refText */
 //global variable
 let speech;
 let voices, voice;
-let txt, index, sentence,phrase;
+let refText, index, sentence,phrase;
 
 function setup() {
 
   createCanvas(400, 100);
   background(0);
-  txt = loadStrings("nodeMaskText.txt");
+  refText = loadStrings("nodeMaskText.txt");
 
   speech = new p5.Speech(); // speech synthesis object
   speech.onLoad = voiceReady;
@@ -44,22 +45,22 @@ function mousePressed() {
   // voice electro Cellos
 
   //speech.speak(' stay cooool'); // say something
-  index = Math.floor((Math.random()*txt.length));
-  phrase = txt[index];
+  index = Math.floor((Math.random()*refText.length));
+  phrase = refText[index];
   speech.speak (phrase); // say something from the node txt
 //  speech.speak(' Do I know you? I am the mask dada data'); // say something
 
 }
 
 function loadText(){
-  var txt;
-  txt = loadStrings("nodeMaskText.txt");
-  console.log(txt);
+
+  refText = loadStrings("nodeMaskText.txt");
+  console.log(refText);
   }
   function returnSentence(){
   //  index = Math.floor((Math.random()*txt.length));
     index = 5;
-    phrase = txt[index];
+    phrase = refText[index];
     console.log(phrase);
     return phrase;
   }
