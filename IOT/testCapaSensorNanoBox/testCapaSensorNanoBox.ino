@@ -1,5 +1,5 @@
 #include <CapacitiveSensor.h>
-
+/*made a box in cardboard , to prptotype light and mini projection of the wired hand*/
 /*
    CapitiveSense Library Demo Sketch
    Paul Badger 2008
