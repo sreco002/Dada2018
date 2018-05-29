@@ -4,6 +4,7 @@ This is the marionette
 This is us
 You are the puppets
 I am the puppeteer
+We are the puppeteers
 I am the mask
 You are the masks
 To be or not to be a node
