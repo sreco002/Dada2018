@@ -1,0 +1,18 @@
+{
+  "name": "npm_demo",
+  "version": "1.0.0",
+  "description": " following demo Shiffmann on npm",
+  "main": "bot.js",
+  "scripts": {
+    "start":" starting",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "shiffman"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "twit": "^2.2.9"
+  }
+}
