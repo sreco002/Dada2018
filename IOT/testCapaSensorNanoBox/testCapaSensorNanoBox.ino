@@ -12,6 +12,7 @@
 CapacitiveSensor   nanoBox = CapacitiveSensor(4, 7);       // 10M resistor between pins 4 & 7, pin 7 is sensor pin, add a wire and or foil if desired
 int tresh = 1000;
 const int ledPin = 12;
+int toggle =0;
 
 void setup()
 {
@@ -38,6 +39,7 @@ void loop()
      Serial.println(sensorValue);                  // print sensor output 1
 
     digitalWrite(ledPin, HIGH);
+    delay(10000);// wait 10 sec before lighting down, Ronnie leDrew , in shadow theatre, change effect every 10 sec 
   }
   else {
     digitalWrite(ledPin, LOW);
