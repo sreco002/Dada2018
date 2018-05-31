@@ -1,7 +1,7 @@
 /*Using a Transistor to Control High Current Loads with an Arduino
   https://itp.nyu.edu/physcomp/labs/motors-and-transistors/using-a-transistor-to-control-high-current-loads-with-an-arduino/
 */
-/**/
+/* motor feed around 2.5V to have very small turn, "joker" */
 
 #include <CapacitiveSensor.h>;
 
