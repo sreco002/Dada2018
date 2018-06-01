@@ -47,7 +47,7 @@ void setup() {
 }
 
 void loop() {
-    average = 0;
+  
   // read the sensor
   long sensorValue =   cs_4_2.capacitiveSensor(30);
 
