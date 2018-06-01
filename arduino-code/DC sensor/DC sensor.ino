@@ -6,9 +6,12 @@
 #include <CapacitiveSensor.h>;
 
 const int transistorPin = 9;    // connected to the base of the transistor
+int cap_pin_out = 4;
+int cap_pin_in = 2;
+const int sensorPin = 9;    // connected to the base of the transistor
 
 //capacitive sensor------
-CapacitiveSensor   cs_4_2 = CapacitiveSensor(4, 2);       // 10M resistor between pins 4 & 2, pin 2 is sensor pin, add a wire and or foil if desired
+CapacitiveSensor   capSense = CapacitiveSensor(cap_pin_out, cap_pin_in);  // 10M resistor between pins 1 & 2, pin 2 is sensor pin, add a wire and or foil if desired
 
 
 int treshold = 1000;
@@ -19,7 +22,7 @@ int treshold = 1000;
 // the more the readings will be smoothed, but the slower the output will
 // respond to the input.  Using a constant rather than a normal variable lets
 // use this value to determine the size of the readings array.
-const int numReadings = 10;
+const int numReadings = 100;
 
 int readings[numReadings];      // the readings from the analog input
 int readIndex = 0;              // the index of the current reading
@@ -41,15 +44,15 @@ void setup() {
   // set  the transistor pin as output:
   pinMode(transistorPin, OUTPUT);
 
-  cs_4_2.set_CS_AutocaL_Millis(0xFFFFFFFF);// turn off autocalibrate on channel 1 - just as an example
+  capSense.set_CS_AutocaL_Millis(0xFFFFFFFF);// turn off autocalibrate on channel 1 - just as an example
 
 
 }
 
 void loop() {
-  
+
   // read the sensor
-  long sensorValue =   cs_4_2.capacitiveSensor(30);
+  long sensorValue =   capSense.capacitiveSensor(30);
 
   // subtract the last reading:
   total = total - readings[readIndex];
@@ -78,17 +81,18 @@ void loop() {
 
   if (average >= treshold)  {// map the sensor value to a range from 0 - 255:
 
-    int val = map(average, 0, 1023, 0, 255);
+    val = map(average, 0, 1023, 0, 255);
+    val =  constrain (val , 0,255);
 
     // use that to control the transistor:
        Serial.println(val);
   //  analogWrite(transistorPin, 255);
-     digitalWrite(transistorPin,HIGH);
+     digitalWrite(sensorPin,HIGH);
    // delay (15);
   }
   else if (average < treshold)  {
   //  analogWrite(transistorPin, 0);
-    digitalWrite(transistorPin, LOW);
+    digitalWrite(sensorPin, LOW);
    // Serial.println("stop");
    }
 
