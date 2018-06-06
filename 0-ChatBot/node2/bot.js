@@ -14,7 +14,7 @@ var T = new Twit(config);
 //
 //  search twitter for all tweets containing the word 'banana' since July 11, 2011
 //
-var params ={ q: 'computational art',
+var params ={ q: 'I am happy+OR + i+love+you +happiest ',
               lang: "en",
                count: 1
            }

@@ -4,7 +4,8 @@
   "description": "api for Dada Automata project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "start": "node server.js"
+
   },
   "author": "Sabrina Recoules Quang",
   "license": "ISC",
