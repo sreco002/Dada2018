@@ -22,5 +22,7 @@
   "negative": -10,
   "weird": 5,
   "cat": 5,
-  "dog": 4
+  "dog": 4,
+  "born": 10,
+  "day": 1
 }

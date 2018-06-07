@@ -5,6 +5,26 @@ function setup(){
   var button = select('#submit');
   button.mousePressed(submitWord);
 
+  var buttonA = select('#analyze');
+  buttonA.mousePressed(analyzeThis);
+
+}//end setup
+
+function analyzeThis(){
+  var txt = select('#textInput').value();
+  var data ={
+    text:txt
+  }
+  httpPost('analyze/', data,'json',dataPosted,postErr);
+}
+
+function dataPosted(result){
+  console.log(result);
+}
+
+function postErr(result){
+  console.log(err);
+}
 
 function submitWord(){
     word = select('#word').value();
@@ -15,10 +35,9 @@ function submitWord(){
       console.log(data);
 
     }
-
   }
 
-}//end setup
+
 
 function gotData(data){
     background(121);

@@ -16,6 +16,6 @@ for (var i= 0; i<table.getRowCount();i++){
   afinn[word] = score; // make the JS object JSON pair up : key is the word, score is the value
 }
 console.log(afinn);
-save(afinn,'AFINN111.json');
+save(afinn,'sentiment.json');
 }
 function draw(){}

@@ -15,21 +15,25 @@
   <!--<script language="javascript" type="text/javascript" src="steeringLetter.js"></script>-->
   <!-- <script language="javascript" type="text/javascript" src="CubeWaveBees.js"></script>-->
   <!--  <script language="javascript" type="text/javascript" src = "sketchML.js"></script>-->
-   <script language="javascript" type="text/javascript" src = "sketch.js"></script>
+   <!-- <script language="javascript" type="text/javascript" src = "sketch.js"></script>-->
+   <script language="javascript" type="text/javascript" src = "sentimentAnalyse.js"></script>
 
   <!-- this line removes any default padding and style. you might only need one of these values set. -->
   <style> body {padding: 0; margin: 0;} </style>
 </head>
 
 <body>
+
+<h1> Sentiment Analysis with AFINN</h1>
 <p>
-  <br/>
-  word:  <input id ="word">
-  <br/>
-  score:<input id ="score">
-  <br/>
-  <br/>
-  <button id="submit">submit</button>
+  Type here:</br>
+  <textarea id = "txt" cols= 50 rows = 10  ></textarea>
 </p>
+
+
+  <p id = "score" ></p>
+  <p id = "comparative"> </p>
+  <p id = "wordlist" ></p>
+
 </body>
 </html>
