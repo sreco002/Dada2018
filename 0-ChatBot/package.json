@@ -1,0 +1,11 @@
+{
+  "name": "dadatalk-api",
+  "version": "1.0.0",
+  "description": "api for talking , Dada Automata project",
+  "main": "talk.js",
+  "scripts": {
+      "start": "node talk.js"
+  },
+  "author": "Sabrina Recoules Quang",
+  "license": "ISC"
+}

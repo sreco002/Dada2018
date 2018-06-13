@@ -3,8 +3,8 @@ int pos = 0;   // variable to store the servo position for servoPlayPos()
 int delayServo = 5000;
 int treshold = 200;//1000
 const int LED = 12;
-int pinIn = 2;
-int pinOut = 4;
+int pinIn = 4;//sensible pin
+int pinOut = 7;
 int pinMotor = 9;
 #include <Servo.h>
 #include <CapacitiveSensor.h>;

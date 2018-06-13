@@ -7,6 +7,8 @@
 let speech;
 let voices, voice;
 let refText, index, sentence,phrase;
+var iptr = 0; // a counter for the words
+var words = ["We are the MASK DATA","0111011101100101", "01101110011001010111010001110111011011110111001001101011","01101101011000010111001101101011", "un","one", "zero un", "uno zero uno zero zero", "zero one one"]; // some words
 
 function setup() {
 
@@ -48,8 +50,14 @@ function mousePressed() {
   index = Math.floor((Math.random()*refText.length));
   phrase = refText[index];
   speech.speak (phrase); // say something from the node txt
-//  speech.speak(' Do I know you? I am the mask dada data'); // say something
+  speech.setVoice(20); // 20 is a nice computer like voice
+  speech.setRate(0.9);
+  speech.setPitch(0.6);
 
+  //myVoice.setVoice(42);//  56 italienne 55 Indonesia 47 allemand 37Thomas francais, 15 ou Juan male espagnol 65 chinois , 60 german? ou 'Luca'
+    speech.speak(words[iptr]);
+    iptr = (iptr+1) % words.length; // increment
+    console.log(iptr);
 }
 
 function loadText(){

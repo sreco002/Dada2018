@@ -9,7 +9,7 @@
 */
 
 
-CapacitiveSensor   nanoBox = CapacitiveSensor(4, 7);       // 10M resistor between pins 4 & 7, pin 7 is sensor pin, add a wire and or foil if desired
+CapacitiveSensor   nanoBox = CapacitiveSensor(4, 2);       // 10M resistor between pins 4 & 7, pin 7 is sensor pin, add a wire and or foil if desired
 int tresh = 1000;
 const int ledPin = 12;
 int toggle =0;
@@ -28,7 +28,7 @@ void loop()
 
   long start = millis();
   long sensorValue =  nanoBox.capacitiveSensor(30);
- // Serial.println(sensorValue); 
+   Serial.println(sensorValue); 
 
 //  Serial.print(millis() - start);        // check on performance in milliseconds
 //  Serial.print("\t");                    // tab character for debug windown spacing

@@ -2,7 +2,7 @@
 var table ;
 var afinn ={};
 function preload(){
-table = loadTable('AFINN111.txt', 'tsv');
+table = loadTable('alice_oz.txt', 'tsv');
 
 }
 function setup(){
