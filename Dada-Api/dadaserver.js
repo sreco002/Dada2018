@@ -19,7 +19,7 @@ var server = app.listen(3000, listening);// listen on that port
 
 function  listening(){
   console.log("Dada listening...");
-  app.use(express.static('t1kwebsite'));// link with this website where database is listen to the request to the "website" on the port and get the output
+  app.use(express.static('T1KW'));// link with this website where database is listen to the request to the "website" on the port and get the output
 
 
 
