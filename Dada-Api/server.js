@@ -23,7 +23,7 @@ var afinn = JSON.parse(afinnData);
 
 function  listening(){
   console.log("listening...");
-  app.use(express.static('website'));// will launch the index.html from this website , listen to the request to the "website" on the port and get the output
+  app.use(express.static('T1KW'));// will launch the index.html from this website , listen to the request to the "website" on the port and get the output
 
 
   // parse application/x-www-form-urlencoded

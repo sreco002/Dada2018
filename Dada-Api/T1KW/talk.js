@@ -8,11 +8,11 @@ let speech;
 let voices, voice;
 let refText, index, sentence,phrase;
 var iptr = 0; // a counter for the words
-var words = ["We are the MASK DATA","0111011101100101", "01101110011001010111010001110111011011110111001001101011","01101101011000010111001101101011", "un","one", "zero un", "uno zero uno zero zero", "zero one one"]; // some words
+var words = ["We are the MASK DATA","01010111 01100101" , "0111011101100101", "01001110 01101111 01100100 01100101 ","01101101011000010111001101101011", "un","one", "zero un", "uno zero uno zero zero", "zero one one"]; // some words
 
 function setup() {
 
-  createCanvas(400, 100);
+  createCanvas(48,240);
   background(0);
   refText = loadStrings("nodeMaskText.txt");
 
@@ -51,7 +51,7 @@ function mousePressed() {
   phrase = refText[index];
   speech.speak (phrase); // say something from the node txt
   speech.setVoice(20); // 20 is a nice computer like voice
-  speech.setRate(0.9);
+  speech.setRate(1);
   speech.setPitch(0.6);
 
   //myVoice.setVoice(42);//  56 italienne 55 Indonesia 47 allemand 37Thomas francais, 15 ou Juan male espagnol 65 chinois , 60 german? ou 'Luca'
