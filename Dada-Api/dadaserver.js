@@ -7,8 +7,13 @@
 // http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010
 // https://www.npmjs.com/package/sentiment
 
+
+// require the libraries we need
 var express = require('express');
 var bodyParser = require ('body-parser');
+var serial = require('serialport');
+
+
 var app = express();
 var server = app.listen(3000, listening);// listen on that port
 

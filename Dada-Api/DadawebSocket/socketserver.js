@@ -16,7 +16,8 @@ function newConnection(socket){
   socket.on('brush', mouseMsg);// the data with this title are available (on)
 
   function mouseMsg(data){
-    socket.broadcast.emit('brush',data);
+    socket.broadcast.emit('brush',data);// emit the message received
+//io.sockets.emit('brush',data); // emit to everyone including the sender
     console.log(data);// displaythe data on console
   }
 }

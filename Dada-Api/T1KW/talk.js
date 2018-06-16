@@ -8,7 +8,7 @@ let speech;
 let voices, voice;
 let refText, index, sentence,phrase;
 var iptr = 0; // a counter for the words
-var words = ["We are the MASK DATA","01010111 01100101" , "0111011101100101", "01001110 01101111 01100100 01100101 ","01101101011000010111001101101011", "un","one", "zero un", "uno zero uno zero zero", "zero one one"]; // some words
+var words = ["77 65 20 61 72 65 20 68 65 78 61 64 65 63 69 6d 61 6c 20 6d 61 73 6b 73","77 65 20 61 72 65 20 62 69 6e 61 72 79 20 6d 61 73 6b 73","We are the MASK DATA","01010111 01100101" , "77 65","64 61 64 61","61 72 65","6d 61 73 6b","un","one", "zero un", "uno zero uno zero zero", "zero one one"]; // some words
 
 function setup() {
 
@@ -35,7 +35,11 @@ function setup() {
     console.log(speech.voices);
   }
 }
-
+//add function to get the value of the proximity sensor
+function presence(){
+  // is there someone?
+  //get the value from Arduino web server , if the value is above the treshold , talk
+}
 function mousePressed() {
   voices = speech.voices;
   voice = random(voices);
@@ -45,11 +49,13 @@ function mousePressed() {
   speech.setVoice(voice.name);
   //speech.setVoice('Samantha'); // good voice with rate 0.7 and pitch 0.8
   // voice electro Cellos
-
   //speech.speak(' stay cooool'); // say something
   index = Math.floor((Math.random()*refText.length));
   phrase = refText[index];
+
   speech.speak (phrase); // say something from the node txt
+
+
   speech.setVoice(20); // 20 is a nice computer like voice
   speech.setRate(1);
   speech.setPitch(0.6);
@@ -58,6 +64,7 @@ function mousePressed() {
     speech.speak(words[iptr]);
     iptr = (iptr+1) % words.length; // increment
     console.log(iptr);
+
 }
 
 function loadText(){
