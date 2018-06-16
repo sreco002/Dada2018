@@ -8,7 +8,7 @@ let speech;
 let voices, voice;
 let refText, index, sentence,phrase;
 var iptr = 0; // a counter for the words
-var words = ["77 65 20 61 72 65 20 68 65 78 61 64 65 63 69 6d 61 6c 20 6d 61 73 6b 73","77 65 20 61 72 65 20 62 69 6e 61 72 79 20 6d 61 73 6b 73","We are the MASK DATA","01010111 01100101" , "77 65","64 61 64 61","61 72 65","6d 61 73 6b","un","one", "zero un", "uno zero uno zero zero", "zero one one"]; // some words
+var words = ["77 65","617265"," 64 61 64 61 ","We are the MASK DATA","01010111 01100101" , "77 65","64 61 64 61","61 72 65","6d 61 73 6b","un","one", "zero un", "uno zero uno zero zero", "zero one one"]; // some words
 
 function setup() {
 

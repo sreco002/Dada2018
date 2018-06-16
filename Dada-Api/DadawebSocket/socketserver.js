@@ -5,8 +5,9 @@
 var express = require('express');
 var app = express();
 var server = app.listen(3000);// listen on that port
-app.use(express.static('public'));// this is the place where can other app /people could look at the files I want toea sharelink with this website where database is listen to the request to the "website" on the port and get the output
-console.log("socketServer is running")
+var client = 'public';
+app.use(express.static(client));// this is the place where can other app /people could look at the files I want toea sharelink with this website where database is listen to the request to the "website" on the port and get the output
+console.log("socketServer is running for client : "+ client )
 var socket = require('socket.io');
 var io = socket(server);
 io.sockets.on('connection', newConnection);

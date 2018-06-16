@@ -4,23 +4,33 @@
 
 // Use a Readline parser
 
-const SerialPort = require('serialport');
-const parsers = SerialPort.parsers;
+var SerialPort = require('serialport');
+var parsers = SerialPort.parsers;
+var receivedData="";
 
 // Use a `\r\n` as a line terminator
-const parser = new parsers.Readline({
+var parser = new parsers.Readline({
   delimiter: '\r\n'
 });
 
-const port = new SerialPort('/dev/cu.usbmodem1421', {
+var port = new SerialPort('/dev/cu.usbmodem1421', {
   baudRate: 9600
 });
 
 port.on('open', () => console.log('Port open'));
 
-port.pipe(parser);
+port.pipe(parser);//input from port to parser
 
-parser.on('data', console.log);
-console.log(parsers);
+//parser.on('data', console.log);//print on console , what is received
+// put the parser into an array of receivedData and translate into string
+parser.on('data',function(data){
+  receivedData =data.toString();
+  //console.log(receivedData);
+  // checking that we can manipulate what we received
+  if (receivedData == "Hello") {console.log("On");}
+  if (receivedData == "0") {console.log("OFF");}
+  });
+
+
 
 port.write('ROBOT PLEASE RESPOND\n');
