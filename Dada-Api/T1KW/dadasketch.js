@@ -15,7 +15,7 @@ function setup(){
 
   socket.on(label,newDrawing);// open the channel label with data from the server
   socket.on('listening',newSensorMsg);//another possible message/channel , use data in newSensorMsg
-}
+}//end setup
 
 //what to do with the messages received from the server on channels label and listening
 function newDrawing(data){ //function getting the data (modified or not) from the server
