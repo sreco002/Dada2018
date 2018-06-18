@@ -39,10 +39,11 @@ var message = "we are the Dada Data"; // data goes there
 console.log("dadasocketServer is running for client : "+ client +"label is " +label)// which website is the client
 
 //FUNCTIONS
-
-function newConnection(socket){
+//when there is a new connection , what to do : open the channels, make data available and broadcast data 
+function newConnection(socket){//when there is a new connection
   console.log('new connection:' + socket.id);//when there is a new connection
   socket.on(label, mouseMsg);// socket link is alive, make the data with this 'label' are available (on)
+  socket.on('listening',newSensorMsg);//another possible channel , perform newsensorMsg
 
   function mouseMsg(data){
     socket.broadcast.emit(label,data);// emit the data received with this label , sent by the client website
@@ -51,8 +52,14 @@ function newConnection(socket){
     console.log(message + " number "+ iptr );
 
   }
-}
+  function newSensorMsg(data){
+    socket.broadcast.emit('listening',data);
+    console.log(data);
 
+  }
+}
+//end new connection
+//arduino==============
 function write(){
   serialDevicePort.open(function (err){
   //  console.log(message + " number "+ iptr );
@@ -65,3 +72,4 @@ function write(){
 }
 setTimeout(write,1000); // wait for initialization
 setInterval(write,30000); // write data every 30000sec
+//end arduino

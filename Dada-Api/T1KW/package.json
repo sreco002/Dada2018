@@ -1,4 +1,4 @@
-ear{
+{
   "name": "t1kw",
   "version": "1.0.0",
   "description": "dada talk website ",
@@ -13,6 +13,8 @@ ear{
     "express": "^4.16.3",
     "johnny-five": "^0.15.0",
     "p5.serialserver": "0.0.25",
-    "serialport": "^6.2.0"
+    "serialport": "^6.2.0",
+    "socket.io": "^2.1.1",
+    "socket.io-stream": "^0.9.1"
   }
 }

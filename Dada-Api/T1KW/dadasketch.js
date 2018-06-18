@@ -27,6 +27,8 @@ function newDrawing(data){ //function getting the data (modified or not) from th
 function newSensorMsg(activate){// receiving the status of the sensor from server and display it in the browser
 if(activate== true){fill(255,0,0);}
 else if (activate == false){fill(0,255,0);}
+
+
   noStroke();
   triangle(18,240,18,360,240,18); // use the new data (shared) on the server
 

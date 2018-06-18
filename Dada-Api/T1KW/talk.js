@@ -35,11 +35,7 @@ function setup() {
     console.log(speech.voices);
   }
 }
-//add function to get the value of the proximity sensor
-function presence(){
-  // is there someone?
-  //get the value from Arduino web server , if the value is above the treshold , talk
-}
+
 function mousePressed() {
   voices = speech.voices;
   voice = random(voices);
