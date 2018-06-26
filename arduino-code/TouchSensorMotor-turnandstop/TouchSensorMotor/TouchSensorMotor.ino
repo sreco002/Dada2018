@@ -104,14 +104,14 @@ void loop()
 
 }
 
-void servoPlayandStop() {
-
-  // attaches the servo on pin 9 to the servo object
-  delay(15);
-  myservo.write(1);
-  // sets the servo position according to the scaled value
-  delay(delayServo);// change delay for increasng or decreasing the number of turn
-  // waits for it to get to the position
-  myservo.detach();
- delay(1000);
-}
+//void servoPlayandStop() {
+//
+//  // attaches the servo on pin 9 to the servo object
+//  delay(15);
+//  myservo.write(1);
+//  // sets the servo position according to the scaled value
+//  delay(delayServo);// change delay for increasng or decreasing the number of turn
+//  // waits for it to get to the position
+//  myservo.detach();
+// delay(1000);
+//}

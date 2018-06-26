@@ -4,6 +4,7 @@
  GND to arduino GND
  Echo to Arduino pin 7 
  Trig to Arduino pin 8
+ Motor pin 9
  
  This sketch originates from Virtualmix: http://goo.gl/kJ8Gl
  Has been modified by Winkle ink here: http://winkleink.blogspot.com.au/2012/05/arduino-hc-sr04-ultrasonic-distance.html
@@ -15,6 +16,18 @@
 #define echoPin 7 // Echo Pin
 #define trigPin 8 // Trigger Pin
 #define LEDPin 13 // Onboard LED
+#define  pinMotor  9
+
+
+
+int pos = 0;   // variable to store the servo position for servoPlayPos()
+int delayServo = 5000;
+#include <Servo.h>
+
+Servo myservo;  // create servo object to control a servo
+
+
+
 
 int maximumRange = 30; // Maximum range needed
 int minimumRange = 0; // Minimum range needed
@@ -25,6 +38,10 @@ void setup() {
  pinMode(trigPin, OUTPUT);
  pinMode(echoPin, INPUT);
  pinMode(LEDPin, OUTPUT); // Use LED indicator (if required)
+
+ 
+  myservo.attach(pinMotor);  // attaches the servo on pin 9 to the servo object
+
 }
 
 void loop() {

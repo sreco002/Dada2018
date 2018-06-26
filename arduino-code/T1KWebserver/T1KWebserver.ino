@@ -12,12 +12,14 @@
 #include <Ethernet.h>
 
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-byte ip[] =  { 192,168,8,102 };
+byte ip[] =  { 192,168,8,101 };
 
 const int MAX_PAGENAME_LEN = 8; // max characters in page name
 char buffer[MAX_PAGENAME_LEN+1]; // additional character for terminating null
 
 EthernetServer server(8081);
+//tutorial https://gist.github.com/borowe/c761c7f31ef2b95372fe
+
 
 // Servo Library and setup
 #include <Servo.h>

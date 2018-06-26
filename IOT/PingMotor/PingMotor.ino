@@ -9,12 +9,11 @@
 
 */
 int soundSensor = 7;
-int LED = 13;
+int LED = 12;
 int pinMotor = 9;
 
 int pos = 0;   // variable to store the servo position for servoPlayPos()
 int delayServo = 5000;
-int delaySound = 8000;
 int statusSensor = 0;
 #include <Servo.h>
 
@@ -37,31 +36,28 @@ void setup()
 
 void loop()
 {
-  statusSensor = digitalRead (soundSensor);
-  //Serial.println(statusSensor);
+   statusSensor = digitalRead (soundSensor);
+  Serial.println(statusSensor);
 
-  if (statusSensor == 1)// sound is on
+  if (statusSensor == 1)
   {
-    //motor is off
-    Serial.println(statusSensor);
-    Serial.println("Do not Move");//motor is off
+    //motor is on
+    Serial.println("Motor is On");
     digitalWrite(LED, HIGH);
+    myservo.write(255);                  // sets the servo position according to the scaled value
+  
+    servoStopDetach();
+    //servoPlayPos();
+
 
   }
 
   else
   {
-      //motor is on
-    Serial.println("Motor is On");
-  
     digitalWrite(LED, LOW);
-    //myservo.write(180);                  // sets the servo position according to the scaled value
-
-    servoStopDetach();
-    //servoPlayPos();
 
   }
-  delay(delaySound);                           // waits to listen if there is a sound
+  delay(15);                           // waits for the servo to get there
 
 }
 
@@ -69,14 +65,12 @@ void servoStopDetach() {
   myservo.attach(pinMotor);
   // attaches the servo on pin 9 to the servo object
   delay(15);
-  myservo.write(180);
+  myservo.write(1);
   // sets the servo position according to the scaled value
- delay(delayServo);// change delay for increasng or decreasing the number of turn
+  delay(delayServo);// change delay for increasng or decreasing the number of turn
   // waits for it to get to the position
   myservo.detach();
-
+  delay(1000);
 }
-
-
 
 

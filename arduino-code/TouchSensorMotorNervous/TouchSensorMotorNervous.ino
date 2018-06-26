@@ -1,21 +1,21 @@
 
 int pos = 0;   // variable to store the servo position for servoPlayPos()
 int delayServo = 5000;
-int treshold = 200;//1000
+int treshold = 500;//1000// crochet is 600 
 const int LED = 12;
-
+const int motorPin = 9;
 #include <Servo.h>
 #include <CapacitiveSensor.h>;
 
 Servo myservo;  // create servo object to control a servo
-CapacitiveSensor   cs_4_2 = CapacitiveSensor(4, 2);       // 10M resistor between pins 4 & 2, pin 2 is sensor pin, add a wire and or foil if desired
+CapacitiveSensor   nervousSensor = CapacitiveSensor(5, 2);       // 10M resistor between pins 4 & 2, pin 2 is sensor pin, add a wire and or foil if desired
 
 
 void setup() {
   Serial.begin(9600);
-  myservo.attach(6);  // attaches the servo on pin 6 to the servo object
+  myservo.attach(motorPin);  // attaches the servo on pin 6 to the servo object
   pinMode(LED, OUTPUT);
-  cs_4_2.set_CS_AutocaL_Millis(0xFFFFFFFF);// turn off autocalibrate on channel 1 - just as an example
+  nervousSensor.set_CS_AutocaL_Millis(0xFFFFFFFF);// turn off autocalibrate on channel 1 - just as an example
 
 
 
@@ -23,12 +23,12 @@ void setup() {
 
 void loop() {
   // read from the sensor:
-  long sensor1 =  cs_4_2.capacitiveSensor(30);
+  long sensor1 =  nervousSensor.capacitiveSensor(30);
   Serial.println(sensor1);  // print sensor output
   if (sensor1 > treshold)
   {
     digitalWrite(LED, HIGH);
-    myservo.attach(6);
+    myservo.attach(motorPin);
     // servoStopDetach();
     servoPlayPos();
     //servoPlayNervous();
@@ -48,9 +48,9 @@ void loop() {
 
 void servoStopDetach() {
   Serial.println("hello");
-  myservo.attach(6);
+  myservo.attach(motorPin);
   // attaches the servo on pin 6 to the servo object
-  delay(15);
+  delay(150);//15
   myservo.write(1);
   // sets the servo position according to the scaled value
   delay(delayServo);// change delay for increasng or decreasing the number of turn
@@ -85,7 +85,7 @@ myservo.detach();
 
 
 void servoPlayNervous() {
-  myservo.attach(6);
+  myservo.attach(motorPin);
  // myservo.write(180);
   delay(8000); ////stops motor for 8 seconds
   //  for (pos = 180; pos >= 90; pos -= 1) // goes from 180 degrees to 0 degrees
