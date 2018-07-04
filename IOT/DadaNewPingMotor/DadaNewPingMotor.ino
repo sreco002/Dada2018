@@ -50,6 +50,12 @@ void loop() {
       sonar.ping_timer(echoCheck); // Do the ping (processing continues, interrupt will call echoCheck to look for echo).
 
     }
+
+
+
+
+
+
   }
   // Other code that *DOESN'T* analyze ping results can go here.
 }
@@ -83,7 +89,20 @@ void oneSensorCycle() { // All iterations complete, calculate the median.
     Serial.println("0");// too far
     //Serial.println("tooFar");// too far
     digitalWrite(LEDPin, LOW);
-  
+
+    //servo activate and stop
+    Serial.println("motor On");
+    //  servoStopDetach() ;
+
+    myservo.attach(pinMotor);
+    // attaches the servo on pin 9 to the servo object
+    //delay(15);
+    myservo.write(180);
+    // sets the servo position according to the scaled value
+    // delay(delayServo);// change delay for increasng or decreasing the number of turn
+    // waits for it to get to the position
+    myservo.detach();
+
 
 
 
@@ -95,26 +114,26 @@ void oneSensorCycle() { // All iterations complete, calculate the median.
     Serial.println("Hello");//close enough
     digitalWrite(LEDPin, HIGH);
     //servo stop
-      //servo activate and stop
-    //Serial.println("Motor is On");
-    myservo.write(180);                  // sets the servo position according to the scaled value
-    servoStopDetach();
-
+    //  myservo.detach();
   }
 
 
 }
 
 
-
 void servoStopDetach() {
   myservo.attach(pinMotor);
   // attaches the servo on pin 9 to the servo object
-  delay(15);
-  myservo.write(1);
+  //delay(15);
+  myservo.write(180);
   // sets the servo position according to the scaled value
   delay(delayServo);// change delay for increasng or decreasing the number of turn
   // waits for it to get to the position
   myservo.detach();
-  delay(1000);
+
 }
+
+
+
+
+

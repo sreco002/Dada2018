@@ -2,7 +2,7 @@
 //https://socket.io/get-started/chat/
 //index.html is the socket client ,
 // goes with index.html/talk.js from T1KW website
-
+// stop reading via Arduino , otherwise , resource will be too busy to send values to the server on channel 9600
 /* client is the place where can other app /people could look at the files we want to share
 link with this website where database is listen to the request to the "website" on the port and get the output
 */
@@ -42,7 +42,7 @@ var parser = new parsers.Readline({
   delimiter: '\r\n'
 });
 
-var serialDevicePort = new serialPort('/dev/cu.usbmodem1421', {
+var serialDevicePort = new serialPort('/dev/cu.wchusbserial1410', {// check the port for the Arduino//'/dev/cu.usbmodem1421'
   baudRate: 9600
 });
 
@@ -84,7 +84,7 @@ function newConnection(socket){//called by io.sockets.on('connection', newConnec
     function drawingMsg(data){
     if (receivedData == "Hello") {data.z = 8;}
     if (receivedData == "0") {data.z = 1;}
-   //console.log(receivedData);// add the received Data from Arduino to the new message
+   console.log(receivedData);// add the received Data from Arduino to the new message
     socket.broadcast.emit(label,data);// send back out emit the data received with this label , sent by the client website
     //io.sockets.emit('brush',data); // emit to everyone io.sockets including the sender
   // console.log(data);// display the data on console
