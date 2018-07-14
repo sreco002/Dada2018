@@ -135,7 +135,7 @@ console.log('Sending: '+ mouseX + ','+ mouseY);
 
   speech.speak (phrase); // say something from the node txt
 
-  if (index%5==0) {blabla();}// speak binary
+  if (index%3==0) {blabla();}// speak binary
 
 
  }
