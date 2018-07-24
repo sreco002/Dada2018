@@ -1,0 +1,119 @@
+Off the Network
+networks are plural, fluid, and overlapping; we do not belong to a single network, but to a variety of them, ….clarify the relationship between capitalism and the architecture of digital networks across a variety of instances; to facilitate, in short, a structural critique or unmapping of the network.
+…it is almost universally accepted that digital networks—everything from cell phones to social networking sites—are bringing humanity closer.
+P xiv Twitter and Tumblr that have redefined the way we communicate
+These companies are economic forces, industry innovators, and, some would say, cultural icons. Our lifestyles (and in many cases, our livelihoods) depend on them.
+find the motivations and conditions under which it becomes not only desirable but also necessary to disiden- tify from the digital network
+Jacques Ellul proposed that whereas “primitive man” was socially determined by taboos, rites, and rules, the technological phenomenon represents the most dangerous form of determinism in the modern age.16
+some of their influence can unfold without our consent or even awareness, and this determinism is particularly dangerous.
+a form of pleasure and a form of violence that subordinates the social to economic interests.
+actor– network theory
+Networks are designed to attract participation, but the more we participate in them, the more inequality and disparity they produce.
+digital networks are oppressive not by virtue of being digital or being networks per se but by virtue of being part of a capitalist order that produces inequality.
+digital network converts our participation into disparity…through the commodifcation of the social—that is, by delegating more and more social processes to the market.
+If you are not paying for it, you are not the customer; you are the product being sold.
+The fact of the matter is that inequality in the digital network is not experienced as coercive or unpleasant. To the contrary, because it appeals to our egos by allow- ing us to express ourselves, participation in digital networks is creative and pleasurable. Everyone feels welcomed because there is a place in the network for everyone and everything. Inclusion is the default setting. The inequalities that the network creates are overlooked by most users because the network is perceived as a better provider of opportunities and equality than the alternatives (social institutions or the state, for instance).
+The illusory sense of empowerment is further reinforced by the idea that there is no ruling body in the network. This is true to the extent that there is often no centralized authority in most networks. But we could say that the ruler in networks is network logic itself, which specifes the parameters for interaction.
+ participation in digital networks is seen as a productive, beneficial, and enjoyable contribution to the social order (a form of play mixed with labor )
+the digital network can grant participants subjecthood and agency, but because it produces inequality, it also constraints their rights.
+there is a need, in other words, to resist a logic that can only think in terms of nodes.
+we are seeing is not only the pervasive application of the network as a model or template for organizing society but also the emergence of the network as an episteme, a system for organizing knowledge about the world.
+the episteme allows us to understand the “networked” world, to see everything in terms of net- works, and to apply network logic even to things that are not networks. It becomes, frst, a technological template for organizing the social; and second, it becomes an episteme or a way to understand and access reality.
+The most consequential effect of superimposing this technological template and episteme onto social structures is the rendering illegible of everything that is not a node. I call this effect nodocentrism.
+Nodocentrism means that while net- works are extremely effcient at establishing links between nodes, they embody a bias against knowledge of—and engagement with—anything that is not a node in the same network. Only nodes can be mapped, explained, or accounted for.
+It privileges nodes while discriminating against what is not a node—the invisible, the Other.
+Nodocentrism does not provide an incorrect picture of the world, just an incomplete one. It rationalizes a model of progress and development in which those elements that are outside the network can only acquire currency by becoming part of the network. “Bridging the digital divide”
+Buddy lists, such as the ones used in instant messaging (IM) programs, are examples of nodocentrism because they portray a social network composed of the acquaintances available to chat on that program (even if the friends are currently offine), but they render invisible the acquain- tances who are not on the list because they do not use the same program or because they do not use IM.
+information, sociality, and capital are entangled today
+reimagining of identity beyond the templates of the network episteme
+Embodying the organizing logic of the network is part of what we already do, perhaps without even real- izing it, and it is the divide between the networked and nonnetworked parts of our identity (the included and excluded parts) that we have to become sensitive to.
+in order to be against one needs to occupy a position or framework outside the estabished paradigm.
+The greatest obstacle today to the emergence of a critical theory of the network episteme is, therefore, our inability to imagine an outside.
+The present goal of unmapping the network, therefore, is to give the mind the tools to envision how the network has shaped and molded us, to explain how the network has determined us, and more important, to raise the possibility of alternatives—to ask how we can determine it.
+network logic points to a crisis of imagination, specifcally, to a crisis of how we imagine ourselves as individuals in a community.
+individuals communicate through their affects.” open up new ways for individuals to communicate affectively, giving way to new forms of community and participation.
+We might be fascinated by the digital network as a new form of imagined community, but we need to ask, Whose imagined community?
+monic power is inscribed in networked communities, we need to ask
+what the network template leaves for us to imagine, which is why the network template represents, to paraphrase Chatterjee, of our collective power to imagine community. a colonization of our collective power to imagine community.
+A network map thus becomes an egotistic object for aesthetic contemplation: it is visually pleasing, dynamic, and it is about us. It is the social world turned into an interactive mirror, miniaturized and projected onto a screen for our pleasure.
+Sensing the limits of nodes within and outside us can lead to the alteration of our intimate ways of knowing the world through an increasingly dominant corporate nodocentrism. It is ultimately about changing the way we understand others and ourselves.
+presence of noise to one that sees noise as communicating presence, the presence of the Other. In short, noise communicating difference.
+Participation in the network is a template for being social, for belong- ing. It is perceived as socially rewarding. It gives the illusion of making us more social.
+this episteme because it is affirmed through our personal use of technology, establishing the network as the main template for organizing and understanding the real.
+ Labor is no longer conducted at the workplace in exchange for a wage. Rather, it is produced mostly outside the workplace, during our “free” time. It is rewarded not with a paycheck but with social capital such as attention, rank, and visibility.
+Thus the belief that participation in networks creates equality and diversity is, in fact, a rejection of difference, because ways of belonging that do not conform to nodocentrism become an impossibility within the network
+we can broadly define a digital network as an assemblage of human and technological actors (the nodes) linked together by social and physical ties (the links) that allow for the transfer of information among some or all of these actors.
+metaphors described previously by Morgan: they are part machine (their backbone is digital information and communication technologies), part organism (they are powered by the actions of living beings), and part brain (the combination of people and machines produces a form of collective intelligence that is, supposedly, greater than the sum of its individual parts).
+of the network as a whole, the behavior of individual nodes themselves, or the properties of the ties or links that connect the nodes. properties of the network as a whole may include
+For instance,  size and density, which indicate respectively the number of nodes in the network, and the ratio of actual links to possible links that could exist in the network; •  centralization, which measures the difference between the centrality score (a combination of closeness and betweenness—see further in the text) of the hubs and the rest of the nodes in the network; •  transitivity, which describes the degree in the network to which a triad of actors are connected in a close loop (whenever A is connected to B, B is connected to C, and A and C are also connected); and    inclusiveness, which is a network metric that actually attempts to deal with the excluded by comparing the number of actors in the network to those not included in the network.  
+As far as metrics that describe the properties of nodes themselves, these may include •  in and out degree, which indicates the number of incoming or outgoing links to and from a node; •  diversity, or the number of links to nodes that have been classifed as belonging to separate categories; •  closeness, or the average distance or degrees of separation of a particular node;    betweenness, which measures the degree to which the node is in the path of one node to another; and  • prestige, or the degree to which a node receives links instead of being the source of outgoing links. 
+Properties that describe the links that connect nodes include •  direction, which indicates whether the link flows to and/or from the node; •  indirect links, which describe a connection that involves more than one degree of separation;    frequency, which indicates how many times a link occurs;  • stability, or the endurance of a link over time;  • multiplexity, which describes more than one kind of link between two nodes;  • smmetry or reciprocity, which indicates whether a link is bidirectional; strength, which describes the intensity of the link. 
+`How does the network influence the node, and how do the nodes influence the network?
+Nodocentrism means that things not rendered as nodes are practically unintelligible to the network, which suggests that being in the network requires nodes to continuously participate in ways that makes their behavior legible to other nodes, in alignment with network logic.
+To behave in a way that does not conform to the logic of the network means to render oneself invisible, to cease to exist. The economics of the network are such that a node’s existence depends on its ability to obtain attention from others, to allow its movements to be monitored and its history to be known.
+In other words, the tag is the object that brings a resource and a social group together via the shared meaning of a word.
+Decisions regarding how to classify things, which used to be undertaken by humans in collectivity are now carried out by humans individually, while the code aggregates and represents those decisions.
+This is because this process is now conducted by the code, without some of the opportunities for negotiation and collaboration that other paradigms afford.
+The point is that final communities require the fullness of reality, the bodily presence of persons, and the commanding presence of things. Any attempt to secure the fulfilment of one’s deepest capacities and aspirations in and through
+2 cyberspace will founder on the shoals of commodification.”
+The temptation is to live in a world of stimulating images and simulated commitments and  thus to lead a simulated life.”
+subject that can experience alternative or enhanced forms of reality. In other words, by allowing us to know or experience the world indirectly, technology can put us in places without having to be physically there. This technologically mediated sense of detachment from local space and reattachment to hyperspace is known as “telepresence” or the experience of being somewhere where our bodies are not. Telepresence has become a routine experience for most of us, as common as talking to someone on the phone.
+networks operate according to the principles of nodocentrism, their architecture seems to predominantly (although not always exclusively) exhibit a bias toward the following processes.
+Immediacy,… Intensity, …Intimacy, …Simultaneity
+Theodore Rivers
+Technology inhibits deep thinking because it is concerned primarily with activity, not contemplation. Because thinking is fundamental to self-awareness, technology is an obstacle to self-identity. It is a threat to internality 
+the potentiality of artifacts (or humans, for that matter) is actualized only when they are part of a network of human and nonhuman actors. In hybrid construcivism, there are no clear-cut masters or slaves, since it is not possible to apportion agency exclusively or neatly to one party given the dependencies and interactions created through network transactions. In short, actors acquire their agency only as nodes in a network. Agency cannot exist in a social vacuum; without each other, human and technological actors cannot actualize their agency:
+actor–network theory, or ANT. ANT establishes that “[a]rtifacts and their properties emerge as the result of being embedded in a net- work of human and nonhuman entities. It is in this context that they gain an identity and that properties can be attributed to them.” everything—human or technological—can be an actor on equal terms, hybrid constructivism in general, and ANT in particular, introduces a generalized symmetry in accounting for agency within a network:
+human agency is polysemic by nature; it can have more than one meaning.
+Since the physical and the digital world are not two separate and discreet dimensions of reality, but are tightly interwoven and interdependent, new models of agency have led to a signifcant reconfiguration of the self in collectivity.
+The Virtuality of Networks
+If, as Latour suggests, digital networks can “make visible what was before  4only present virtually,” it is because they allow us to recognize new forms of sociality that before only existed as potentialities.
+The virtual, therefore, is affirmed in its reality by the actual, anchored by it in the here and now, participating with it in the same single reality, confirmed with each repetition of the process whereby the virtual becomes actualized in a unique and creative way (referred to by Deleuze as the “event”).
+Repetition is an important characteristic of this process, since actualization—the transformation of virtual into actual—is not a discreet, once-and-for-all occurrence in the existence of a thing. It is an incessant cycle, which is why we can say that objects are continuously and simultaneously virtual and actual: at all times they have one foot in each realm of reality.
+The virtual, therefore, is affirmed in its reality by the actual, anchored by it in the here and now, participating with it in the same single reality, confirmed with each repetition of the process whereby the virtual becomes actualized in a unique and creative way (referred to by Deleuze as the “event”). As Colebrook states in summarizing Deleuze’s philosophy, “Life is difference: to think differently, to become different, to create differences.”
+The relationship of the outside to the inside might then be like that of the parasite to the host, if we consider those arguments the parasite inserts itself into the communication network between two nodes—the sender and the receiver—disrupting the flow of information by adding noise (information outside the logic of the system) and forcing the network to adjust to its presence.
+ parasite disruptive actions
+ hiding the presence of things that would otherwise be visible in the network (for instance, making web pages invisible to search engines, or  anonymizing online activities);
+revealing the presence of things that would otherwise be invisible in the network (e.g., unveiling secret documents);
+Paradoxes, parasites, and paralogies are thus destructive and creative forms of disrupting the network because they actualize forms of differ- ence inside and outside the network that were previously only virtual. These forms of unmapping, of turning network logic against itself, can be achieved through different actions, such as
+ obstruction of growth in networks;
+ interference in the flow of information within networks;
+ disassembly of networks;
+ simplifcation (such as localization or slowing down) of processes, making large-scale networks obsolete;
+sabotage, which results in a loss of resources for monopolies and monopsonies;
+ misinformation, which reduces the value of social trust in networks;
+hiding the presence of things that would otherwise be visible in the network (for instance, making web pages invisible to search engines, or  anonymizing online activities);
+revealing the presence of things that would otherwise be invisible in the network (e.g., unveiling secret documents); and
+ intensifcation or turning network logic unto itself until it obliterates the network,
+The notion of the near as what is spatially proximal is being remodelled into a notion of the near as what is socially proximal—what we feel is relevant to us socially, regardless of whether it is spatially near or far.
+As Borgmann points out, “Information technology in particular does not so much bring near what is far as it cancels the metric of time and space.”
+Unnetworked space functions as the border in the digital divide, as the limit to how far nearness can be technolgized (to ask  wether something should be networked or not is to encounter the digital divide)
+Thus unnetworked space is construed as a place behind the times(lagging in term of progress). Unless the digital network manages to incorporate ate it into its fold, it shall remain infinitely distant in time and space.
+Now we have to investigate how the virtual can put pressure on the borders of the possible, and thus touch on the real. The passage from the virtual through the possible to the real is the fundamental act of creation. Michael Hardt and Antonio Negri, EMPIRE
+Paranode : Space around a node, negative space in network diagram
+space inhabited by multitudes that do not conform to the organising logic of the network
+Here , I use the term to refer to the space that lies beyond the topological and conceptual limits of the node. This space inhabited by multitudes that do not conform to the organising logic of the network
+But wether it is acknowledged or not, this space gives nodes their history and their identity. In other words, the paranodal is not passive, its existence shapes nods and the relationships between them. The instability of paranodal space is what animates the network, and to attempt to render this space invisible is to arrive at less, not more, complete explanations of the network as a social reality.
+P154
+The paranodal is what forces nodes to react and rearrange themselves according to possibilities that before only existed virtually, causing the network to expand in new directions or even cease to exist. The node, with its static identity and predefined place and purpose, dissolves into something that can occupy other modes of being and evolving.
+Examples of paranodal : close friend not in social media, broken web links pointing to pages that not longer exist, cached versions of pages no longer active, phantom nodes, signal jammers (RFID) that prevent network devices from being found, public spaces without surveillance cameras, radio operators without licence, digital viruses, obsolete technology, digital noises or glitches interfering with the flow of data, lost information packet on internet, population excluded or discriminated by algorithm, punk or rogue nodes.
+Theorising the outside of networks is about uncovering the paranodal contributions that nodocentrism renders invisible
+Nick Mee and Paul Stenner “Whatever variable shapes the network many tale , the energy required to maintain those shapes is taken , indirectly to be sure, from those who are excluded from the networks. “
+The outside discloses a site of opposition, making the network aware of the refusal of the unnetworked.
+Through its encounter with the outside, a node can thus run against the limits of its own logic , and be forced to search for horizons beyond its existence and experience as a node in the network.
+In economics, a monopsony is a market structure in which only one buyer interacts with many would-be sellers of a particular product.
+Monopsonies responsible for privatising and commodifying social relations .
+Disrupting the network is about challenging the determinism of network logic, pointing out the limits of nodocentrism as a form of mothering that subsumes difference to the contours of the node.
+Currently corporations can abuse and exploit users with impunity and while they are acting within the bounds of legality, a dialogue needs to be started about corporate responsibility in the age of social media.
+Unthink the digital network would be to constantly decode the relationship between the map and what it represents and the ways in which the map determines or shapes our interaction with the world.
+Entropy that envelop digital networks ( old network is replaced by a newer one);
+Participate or not participate , inclusion or exclusion
+Even as we continue to participate in digital networks, we should keep in mind that participation is full of contradictions, and those contradictions define our contemporary existence.
+Using paranodality as a method means to critique the ways in which the structures of networked participation seemingly make us more versatile actors, while making invisible the manner in which we are being acted on for someone ’s benefit.
+Conceptualising alternative modes of being through the paranodal.
+Physical representations
+networks are plural, fluid, and overlapping;
+unmapping of the network.
+Network as a template
+digital networks give shape to social forms that were before only virtual possibilities. ( habits, clothes, le roi est nu, , a coat to cover the nudity or the coat of invisibility? )
+colonized subject to the colonial power.
