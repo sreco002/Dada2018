@@ -1,0 +1,84 @@
+New weight limit imposed on Hammersmith Bridge.
+Only one bus is allowed to cross the bridge at a time
+due to safety reasons until the bridge is fully refurbished.
+[A2] East Rochester Way (DA5) (Eastbound) at the junction of Upton Road
+The exit slip is closed for road works.
+Do not  give a handkerchief  as a gift because it is deemed inauspicious
+Do not Touch people's belongings  with the foot
+Do not  Use the left hand to touch other people
+Do not touch antiques or draw graffiti on heritage structures
+Do not expose the chest or back, or look dirty in public areas
+Do not eat a whole piece of bread in one mouthful
+Do not slurp noodles noisily inside an aircraft
+Use shower curtains in a hotel
+Keep quiet when waiting to board a plane
+Keep mobile phones turned off until the aircraft has come to a complete stop
+Be punctual if taking part in a tour group
+Arrive at a banquet hall 15 minutes early
+Adhere to a formal dress code
+take time to dress up
+explore the iconic Eiffel Tower
+loosen up and bring an adventurous spirit
+tip your waiter
+bring a gift for your host
+Bread is broken and never cut
+Only appropriately trained persons
+Recognise and avoid hazards involved
+Repair and maintenance must be performed by qualified personnel.
+The system integrator is responsible for compliance with code requirements
+Components of the product operate with mains voltage.
+Do not touch.
+Only use electrically insulated tools
+Do not short across the DC bus terminals or the DC bus capacitors.
+Disconnect all power.
+Place a "DO NOT TURN ON" label on all power switches.
+Lock all power switches in the open position.
+Wait 15 minutes to allow the DC bus capacitors to discharge.
+Measure the voltage on the DC bus
+Install and close all covers before applying voltage.
+Failure to follow these instructions will result in death or serious injury.
+switch power off and wait for more than 15 minutes.
+Confirm the voltage
+Connect the servo amplifier and servo motor to ground.
+Do not attempt to wire the servo motor until they have been installed.
+Operate the switches with dry hand to prevent an electric shock.
+The cables should not be damaged, stressed loaded, or pinched.
+Do not open the front cover of the servo amplifier.
+You may get an electric shock.
+Do not operate the servo amplifier with the front cover removed.
+Do not remove the front cover even of the servo amplifier if the power is off.
+Please form a queue or a single line in a shop
+It is advisable to take your place in the queue
+Do not try to muscle your way to the front as this may annoy other people in the queue.
+Ensure you are punctual as already discussed.
+Do not sit down at once when you arrive.
+The fork is held in the left hand and the knife in the right while eating.
+Do not rest your elbows on the table.
+Lay your knife and fork parallel across the right side of your plate.
+Cross your knife and fork on your plate with the fork over the knife.
+Do not stare at people in public places;
+Do not spit in the street is considered to be very bad mannered.
+Do not to pick your nose in a public place.
+If your nostrils need de-bugging,
+Please Use a handkerchief.
+Most members will happily provide you with directions if you approach them politely.
+Make sure you are familiar with terms like roundabouts,
+Make sure you are familiar with terms like level crossings
+Make sure you are familiar with terms like traffic lights
+Make sure you are familiar with terms like zebra crossings,
+Make sure you are familiar with terms like bus lanes
+Make sure you are familiar with terms like contra flow
+Make sure you are familiar with terms like traffic jams.
+If you accidentally bump into someone, say ‘sorry’.
+Please do not burp,
+Please do not fart,
+Please do not soil public toilets.
+Please do not speak loudly in public,
+Please finish your meals
+Please do not jump queues
+Never touch the element of the soldering iron....400°C!
+Hold wires to be heated with tweezers or clamps.
+Keep the cleaning sponge wet during use.
+Always return the soldering iron to its stand when not in use.
+Never put it down on the workbench.
+Turn unit off and unplug when not in use.

@@ -1,0 +1,34 @@
+
+
+{
+    "description": "Archetypes, from Carl Jung Theory ",
+    "archetype_story": [
+        {
+            "Departure": [
+                "The Call for Adventure",
+                "Refusal of the Call",
+                "Meeting the Mentor",
+                "Crossing the First Treshold",
+                "Belly of the Whale"
+            ],
+            "Initiation": [
+                "the Road of Trials",
+                "The Meeting with the Supra Natural",
+                "The Other as Temptor",
+                "Atonement with the Supreme",
+                "Apotheosis",
+                "The ultimate boon"
+            ],
+            "Return": {
+                "Refusal": [ ],
+                "Magic": [],
+                "Rescue":[],
+                "Back":[],
+                "Master":[],
+                "Freedom":[]
+
+            },
+            "name": "The Hero"
+        }
+      ]
+      }
