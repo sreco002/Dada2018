@@ -37,7 +37,7 @@ function setup() {
 //================end set up for server talking
 
 
-  refText = loadStrings("nodeMaskText.txt");
+  refText = loadStrings("dadaPoem.txt");
 
   speech = new p5.Speech(); // speech synthesis object
   speech.onLoad = voiceReady;

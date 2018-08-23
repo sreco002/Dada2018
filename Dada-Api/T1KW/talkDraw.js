@@ -44,7 +44,7 @@ var headRadius = 4//4,13
 var wingSize = .9//.9
 var dotSize = 4
 
-var wingTransparency = 1//0.035
+var wingTransparency = 0.5//0.035
 var wingSaturationMultiplier = 0.6//0.8
 var wingBrightness = bnorm(.6)//.6
 
@@ -63,10 +63,10 @@ function bnorm(floatVal, low=0, high=255){return Math.round(floatVal*(high - low
 
 
 function setup() {
+  background(0);
 
-  //createCanvas(48,240);
 
-  createCanvas(windowWidth+20, windowHeight+20)
+  createCanvas(windowWidth, windowHeight)
   colorMode(HSB)
 // setup sound draw
 
@@ -79,7 +79,7 @@ fft.setInput(audio)
 beat = new p5.PeakDetect(startMhz,endMhz, beatThreshold, 60/(bpm/60))
 // end setup sound draw
 
-  background(0);
+
   refText = loadStrings("dadaPoem.txt");
   console.log(refText);
   speech = new p5.Speech(); // speech synthesis object
@@ -105,22 +105,39 @@ beat = new p5.PeakDetect(startMhz,endMhz, beatThreshold, 60/(bpm/60))
 }// end setup
 
 function mousePressed() {
+  //this function will be called when the Ping sensor is on > function PingDraw
+  background(0)
+
   speech.setRate(0.8);
   speech.setPitch(0.6);
   voices = speech.voices;
 
-  //readText();
-
-  readText(iptr,v)// read the text with voice v
+  readText(iptr,v)// read the text with voice from 0 to 2
 
   iptr++;
   v++;
   if (v==dadaVoices.length) v= 0;// go back to the beginning
 
-  if (iptr==refText.length) iptr= 0;// go back to the beginning
+  if (iptr==refText.length) iptr= 0;// if we are at the end of dadapoem go back to the beginning, // change here to generate a new DadaStory2.py
 
 
- }
+
+  if (playNum ==1) {
+    play = false
+    noLoop();
+  }
+
+  if ((playNum ==2)||(playNum ==0)) {
+    play = true;
+    loop();
+
+  }
+
+  //console.log(playNum);
+  if (playNum==2) playNum =0; else playNum++
+
+
+}//end function
 
 function loadText(){
 
@@ -178,22 +195,31 @@ function readText(i,j){
 function draw() {
   //background(0)
 
-  console.log("playNum",playNum)
+  //console.log("playNum",playNum)
   headRadius = random(1,8)
   let spectrum = fft.analyze()
+
   // scaledSpectrum is a new, smaller array of more meaningful values
   let scaledSpectrum = splitOctaves(spectrum, octaves)
   let volume = max(scaledSpectrum)
   beat.update(fft)
 
+
   sign = Math.sign(sign + prevMouseX - mouseX)
   angle -= sign
-  prevMouseX = mouseX
+  //prevMouseX = mouseX
 
   //where to draw
   // translate(mouseX,mouseY)
   //random(windowWidth),random(windowHeight)
-  translate(random(windowWidth),mouseY)
+
+  let posY = map(fft.getCentroid(), startMhz,endMhz, windowHeight,0)
+  posY = max(0,posY)
+  //console.log(posY)
+
+
+
+  translate(random(windowWidth),posY)
 
   rotate(radians(angle))
    //dadaNode = [2,3,random(3),scaledSpectrum.length] // dada node characters drawing
@@ -217,15 +243,9 @@ function draw() {
 
       let R = headRadius + wingSize * scaledSpectrum[i]
 
-    // Butterfly
-      // let x = R * sin(radians(i*180/N +180))
-      // let y = R * cos(radians(i*180/N +180))
-    //insect head alien for playNum 1, pop fpr playNum 0, and stripes for playNum2
+  //insect head alien for playNum 1, pop fpr playNum 0, and stripes for playNum2
       let x = R * sin(radians(i*180/(playNum+1)+180))
       let y = R * cos(radians(i*180/2+180))
-    // pop , with randomWidth, mouseY
-      // let x = R * sin(radians(i*180/dadaNode[1]+180))
-      // let y = R * cos(radians(i*180/dadaNode[1]+180))
 
 
 
@@ -261,30 +281,6 @@ function draw() {
 
 
 
-
-// function mouseClicked(){
-//   background(0)
-//   play = !play
-//   if(play) noLoop(); else loop()
-// }
-
-function mouseClicked(){
-  background(0)
-
-  if (playNum ==1) {
-    play = false
-    noLoop();
-  }
-
-  if ((playNum ==2)||(playNum ==0)) {
-    play = true;
-    loop();
-
-  }
-
-  console.log(playNum);
-  if (playNum==2) playNum =0; else playNum++
-}
 
 
 
@@ -382,4 +378,8 @@ function smoothPoint(spectrum, index, numberOfNeighbors) {
   val = val/smoothedPoints;
 
   return val;
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }

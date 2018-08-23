@@ -12,7 +12,7 @@ var words = ["77 65","617265"," 64 61 64 61 ","We are the MASK DATA","01010111 0
 
 function setup() {
 
-  createCanvas(48,240);
+//  createCanvas(48,240);
   background(0);
   refText = loadStrings("nodeMaskText.txt");
 

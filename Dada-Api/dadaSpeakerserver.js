@@ -42,7 +42,7 @@ var parser = new parsers.Readline({
   delimiter: '\r\n'
 });
 
-var serialDevicePort = new serialPort('/dev/cu.wchusbserial1410', {// check the port for the Arduino//'/dev/cu.usbmodem1421'
+var serialDevicePort = new serialPort('/dev/cu.wchusbserial1410', {// check the port for the Arduino//'/dev/cu.usbmodem1421', /dev/cu.wchusbserial1410
   baudRate: 9600
 });
 
@@ -78,24 +78,26 @@ io.sockets.on('connection', newConnection);
 function newConnection(socket){//called by io.sockets.on('connection', newConnection)
 
   console.log('new connection:' + socket.id);//when there is a new connection
-  socket.on(label, drawingMsg);// if there is a message called 'label' trigger this function 'mouseMsg'link between label and function
+  //socket.on(label, drawingMsg);// if there is a message called 'label' trigger this function 'mouseMsg'link between label and function
   socket.on('listening',sensorMsg);
 
     function drawingMsg(data){
     if (receivedData == "Hello") {data.z = 8;}
     if (receivedData == "0") {data.z = 1;}
-   console.log(receivedData);// add the received Data from Arduino to the new message
+    console.log(receivedData);// add the received Data from Arduino to the new message
     socket.broadcast.emit(label,data);// send back out emit the data received with this label , sent by the client website
     //io.sockets.emit('brush',data); // emit to everyone io.sockets including the sender
-  // console.log(data);// display the data on console
+   console.log(data);// display the data on console
   //  console.log(message + " number "+ iptr );
     }
 
     function sensorMsg(data){
-    if (receivedData == "Hello") {data =true;}
+    if (receivedData == "Hello") {
+      console.log(receivedData);
+      data =true;}
     if (receivedData == "0") {data =false;}
-  //  console.log(receivedData);// add the received Data from Arduino to the new message
-  //console.log("server says : " + data);// add the received Data from Arduino to the new message
+    console.log(receivedData);// add the received Data from Arduino to the new message
+  console.log("server says : " + data);// add the received Data from Arduino to the new message
 
     io.sockets.emit('listening',data);// send back out emit the data received with this label , sent by the client website
 
