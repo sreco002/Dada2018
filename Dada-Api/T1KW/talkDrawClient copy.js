@@ -35,7 +35,7 @@ let playNum = 0;
 //28 Moira 49 Google UK English Female 27 Milena 26 Melina 39 Veena
 //end variables voices
 
-// Variables for the voices=========
+// Variables for the drawing sound=========
 
 var showRays = false
 
@@ -47,9 +47,9 @@ var endMhz = 12000
 var beatThreshold = 0.8//0.4
 var bpm = 120 //120
 
-var headRadius = 4//4,13
-var wingSize = .9//.9
-var dotSize = 4
+var headRadius = 3//4,13
+var wingSize = .5//.9
+var dotSize = 1
 
 var wingTransparency = 0.5//0.035
 var wingSaturationMultiplier = 0.6//0.8
@@ -63,6 +63,7 @@ var strokeBaseBrightness = bnorm(.3)
 var audio, fft, beat //, amplitude
 var angle = 360, sign = 1
 var prevMouseX = 0
+
 
 
 //functions for the sound making
@@ -118,11 +119,7 @@ beat = new p5.PeakDetect(startMhz,endMhz, beatThreshold, 60/(bpm/60))
 
 
   function startSpeaking() {
-  if (playNum==0)  background(20, 100, 50);
-    if (playNum==1)  background(131, 100, 50);
-      if (playNum==2)  background(252, 100, 50);
-
-
+    //background(0, 255, 0);
   }
 
   function endSpeaking() {
@@ -169,16 +166,16 @@ console.log("new message is : "+ activate);
 
 
 
-    // if (playNum ==1) {
-    //   play = false
-    //   noLoop();
-    // }
-    //
-    // if ((playNum ==2)||(playNum ==0)) {
-    //   play = true;
-    //   loop();
-    //
-    // }
+    if (playNum ==1) {
+      play = false
+      noLoop();
+    }
+
+    if ((playNum ==2)||(playNum ==0)) {
+      play = true;
+      loop();
+
+    }
 
     //console.log(playNum);
     if (playNum==2) playNum =0; else playNum++
@@ -198,51 +195,6 @@ socket.emit('listening',activate);//listen again through the channel 'listening 
 // triangle(18,240,18,360,240,18); // use the new data (shared) on the server
 
 }//end newSensorMsg
-
-
-
-
-
-
-
-
-
-
-
-
-function dadaTalk() {
-  //this function will be called when the Ping sensor is on > function PingDraw
-
-  // speech.setRate(0.8);
-  // speech.setPitch(0.6);
-  // voices = speech.voices;
-  //
-  // readText(iptr,v)// read the text with voice from 0 to 2
-  //
-  // iptr++;
-  // v++;
-  // if (v==dadaVoices.length) v= 0;// go back to the beginning
-  //
-  // if (iptr==refText.length) iptr= 0;// if we are at the end of dadapoem go back to the beginning, // change here to generate a new DadaStory2.py
-  //
-  //
-  //
-  // if (playNum ==1) {
-  //   play = false
-  //   noLoop();
-  // }
-  //
-  // if ((playNum ==2)||(playNum ==0)) {
-  //   play = true;
-  //   loop();
-  //
-  // }
-  //
-  // //console.log(playNum);
-  // if (playNum==2) playNum =0; else playNum++
-
-
-}//end function
 
 
 
@@ -267,7 +219,8 @@ function readText(i,j){
 
 //Draw the shapes in response to sound and breath
 function dadaDraw(activate) {
-  console.log(playNum)
+  console.log("dadaDraw:  ")
+
 if(activate ==true){
   console.log("playNum",playNum)
   headRadius = random(1,8)
@@ -276,6 +229,7 @@ if(activate ==true){
   // scaledSpectrum is a new, smaller array of more meaningful values
   let scaledSpectrum = splitOctaves(spectrum, octaves)
   let volume = max(scaledSpectrum)
+
   beat.update(fft)
 
 
@@ -287,11 +241,9 @@ if(activate ==true){
   // translate(mouseX,mouseY)
   //random(windowWidth),random(windowHeight)
 
-  let posY = map(fft.getCentroid(), startMhz,endMhz, windowHeight,0)
-  posY = max(0,posY)
-  //console.log(posY)
-
-
+  let posY = map(fft.getCentroid(),endMhz,startMhz, 0,windowHeight/2)
+//  posY = max(0,posY)
+  console.log(posY)
 
   translate(random(windowWidth),posY)
 
@@ -307,21 +259,23 @@ if(activate ==true){
   	fill(hue, volume*wingSaturationMultiplier, wingBrightness, wingTransparency)
 
   	stroke(hue, volume, strokeBaseBrightness - volume/2, strokeTransparency)
-    strokeWeight(1)
+    strokeWeight(0.5)
 
     let N = scaledSpectrum.length;
     let mirrorCopy = Array(N)
 
 
-    for (let i=0; i < N; i++) { //N or dadaNode.length
+    for (let i=0; i < N; i++) {
 
-      let R = headRadius + wingSize * scaledSpectrum[i]
+    //  let R = headRadius + wingSize* scaledSpectrum[i]
+      let R = headRadius + wingSize* scaledSpectrum[i]
 
   //insect head alien for playNum 1, pop fpr playNum 0, and stripes for playNum2
-      let x = R * sin(radians(i*180+180))
-      let y = R * cos(radians(i*180+180))
-
-
+    //  let x = R * sin(radians(i*210/(playNum+2)+210))
+      // let x = R * sin(radians(i*180 +180))
+      // let y = R * cos(radians(i*180/2+180))
+      let x = R * sin(radians(i*180/(playNum+1) +180))
+      let y = R * cos(radians(i*180/2+180))
 
       drawDot(x,y, i)
       mirrorCopy[N-1-i] = [Math.abs(x),y]
@@ -341,6 +295,9 @@ if(activate ==true){
       	strokeWeight(1)
       }
 	  curveVertex(x,y)
+    let prevX = x;
+    let prevY = y
+    console.log(prevX +"prev "+prevY+ "")
   }// end drawDot
 
     stroke(hue, volume, strokeBaseBrightness - volume/2, 0.4)
@@ -349,35 +306,38 @@ if(activate ==true){
     endShape(CLOSE)
   } // end drawing shapes
 }
-else {
+else if (activate== false){
 
-  headRadius = 6
+  noStroke();
+
+
+  headRadius = random(1,8)
+  ellipse(240,180,headRadius,headRadius);
   let spectrum = fft.analyze()
 
   // scaledSpectrum is a new, smaller array of more meaningful values
   let scaledSpectrum = splitOctaves(spectrum, octaves)
   let volume = max(scaledSpectrum)
+  console.log(scaledSpectrum)
   beat.update(fft)
 
 
   sign = Math.sign(sign + prevMouseX - mouseX)
   angle -= sign
-  //prevMouseX = mouseX
+
 
   //where to draw
-  // translate(mouseX,mouseY)
-  //random(windowWidth),random(windowHeight)
 
-  let posY = map(fft.getCentroid(), startMhz,endMhz, windowHeight,0)
-  posY = max(0,posY)
-  //console.log(posY)
+  //
+  // let posY = map(fft.getCentroid(), startMhz,endMhz, windowHeight/2,0)
+  // posY = max(0,posY)
 
+    let posY = map(fft.getCentroid(), startMhz,endMhz, windowHeight/2,0)
+    posY = max(0,posY)
 
-
-  translate(random(windowWidth),posY)
+  translate(windowHeight/2,posY)
 
   rotate(radians(angle))
-   //dadaNode = [2,3,random(3),scaledSpectrum.length] // dada node characters drawing
 
   { beginShape() // shapes
 
@@ -394,12 +354,15 @@ else {
     let mirrorCopy = Array(N)
 
 
-    for (let i=0; i < N; i++) { //N or dadaNode.length
+    for (let i=0; i < N; i++) {
 
-      let R = headRadius + wingSize * scaledSpectrum[i]
+    //  let R = headRadius + wingSize* scaledSpectrum[i]
+      let R = headRadius + wingSize* scaledSpectrum[i]/2
 
   //insect head alien for playNum 1, pop fpr playNum 0, and stripes for playNum2
-      let x = R * sin(radians(i*180/2+180))
+  //    let x = R * sin(radians(i*180/(playNum+1)+180))
+      let x = R * sin(radians(i*180 +180))
+
       let y = R * cos(radians(i*180/2+180))
 
 
@@ -429,9 +392,19 @@ else {
     strokeWeight(1)
     endShape(CLOSE)
   } // end drawing shapes
-}
-//
-// socket.emit('listening',activate);//listen again through the channel 'listening ', check the activate status,
+
+
+
+
+
+
+
+
+
+
+}//end else if activate
+
+//socket.emit('listening',activate);//listen again through the channel 'listening ', check the activate status,
 
 }// end drawSpeak
 

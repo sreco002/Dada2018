@@ -12,9 +12,11 @@ var myPythonScriptPath = 'DadaStory2.py';
 var PythonShell = require('python-shell');
 var pyshell = new PythonShell(myPythonScriptPath);
 
+
+
 pyshell.on('message', function (message) {
     // received a message sent from the Python script (a simple "print" statement)
-    //console.log("poem is written");
+    console.log("poem is written");
 });
 
 // end the input stream and allow the process to exit
@@ -25,8 +27,16 @@ pyshell.end(function (err) {
 
 });
 
+var d = new Date();
+console.log(d.getDate());
+// temporary files of daily poem which will be append to the dadaPoem.txt global file
+
+var month= d.getMonth()+1;
+var nameFile = "T1KW/dadaPoem/"+"dadaPoem_"+ d.getDate()+"-"+d.getFullYear()+".txt";
+
+
 var fs = require('fs')
-  , filename = '\T1KW/dadaPoem.txt';
+  , filename = nameFile;
 fs.readFile(filename, 'utf8', function(err, data) {
   if (err) throw err;
   //console.log('OK: ' + filename);
@@ -49,7 +59,7 @@ var r = data;
       status : data+'@theatredu1k'
       // watch out the lenght of the post , limited to
 
-      //#GenerativePoetry #Bot
+      //
       }
       //post the tweet
       T.post('statuses/update',tweet, tweeted);
