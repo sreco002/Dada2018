@@ -124,9 +124,6 @@ beat = new p5.PeakDetect(startMhz,endMhz, beatThreshold, 60/(bpm/60))
 
 
   function startSpeaking() {
-  // if (playNum==0)  background(20, 100, 50);
-  //   if (playNum==1)  background(131, 100, 50);
-  //     if (playNum==2)  background(252, 100, 50);
   v++;
   if (v==dadaVoices.length) v= 0;// go back to the beginning
 
@@ -152,10 +149,6 @@ beat = new p5.PeakDetect(startMhz,endMhz, beatThreshold, 60/(bpm/60))
 }// end SETUP+++++++++++++++++++++++++
 
 
-
-
-
-
 /*===============what to do with the messages received from the server on channels label and listening*/
 function newDrawing(data){ //function getting the data (modified or not) from the server
   dadaDraw(data);
@@ -172,23 +165,7 @@ function newSensorMsg(activate){// receiving the status of the sensor from serve
     voices = speech.voices;
     readText(iptr,v);// read the text with voice from 0 to 2
 
-    clearInterval(interval)
-    // setInterval(readText(iptr,v), 10000);
-
-
-    // if (playNum ==1) {
-    //   play = false
-    //   noLoop();
-    // }
-    //
-    // if ((playNum ==2)||(playNum ==0)) {
-    //   play = true;
-    //   loop();
-    //
-    // }
-
-    //console.log(playNum);
-    if (playNum==2) playNum =0; else playNum++
+  //  if (playNum==2) playNum =0; else playNum++
 
 
   }
@@ -221,22 +198,6 @@ function readText(i,j){
     console.log(refText[i]);
     speech.speak(refText[i]);// reftext one by one with a set of voices
     iptr++;
-    // background(20*v+200, 100, 50);
-  //  setInterval(v++,20000);
-
-  //   interval = setInterval(function changeVoice(){
-  //     v++;
-  // //  background(25, 100, 50);
-  //   fill(180,100,50,50)
-  //   console.log("changeVoice");
-  //   noStroke();
-  //   ellipse(windowWidth/2,windowHeight/2,52,(v+1)*26);}
-  // ,5000);
-
-
-    //
-    // if (v==dadaVoices.length) v= 0;// go back to the beginning
-    //
     if (iptr==refText.length) iptr= 0;// if we are at the end of dadapoem go back to the beginning, // change here to generate a new DadaStory2.py
 
 
@@ -247,86 +208,82 @@ function readText(i,j){
 
 //Draw the shapes in response to sound and breath
 function dadaDraw(activate) {
-//  console.log(playNum)
-if(activate ==true){
- // console.log("activate DadaDraw : "+ playNum);
-  // background(25, 100, 50);
-  // fill(180,100,50,50)
-  // noStroke();
-  // ellipse(windowWidth/2,windowHeight/2,52,(playNum+1)*26);
 
-  // interval = setInterval(ellipse(windowWidth/2,windowHeight/2,52,(playNum+1)*26),10000);
-  //
-  // headRadius = 3
-  // let spectrum = fft.analyze()
-  //
-  // // scaledSpectrum is a new, smaller array of more meaningful values
-  // let scaledSpectrum = splitOctaves(spectrum, octaves)
-  // let volume = max(scaledSpectrum)
-  // beat.update(fft)
-  //
-  //
-  // sign = Math.sign(sign + prevMouseX - mouseX)
-  // angle -= 30
-  // //prevMouseX = mouseX
-  //
-  // //where to draw
-  //
-  // let posY = map(fft.getCentroid(), startMhz,endMhz, windowHeight,0)
-  // posY = max(0,posY)
-  // //console.log(posY)
-  //
-  // translate(random(windowWidth),posY)
-  //
-  // rotate(radians(angle))
-  //
-  // { beginShape() // shapes
-  //
-  //   /*hue function(frequency)
-  //   stroke function(volume) */
-  // 	let hue = map(fft.getCentroid(), startMhz,endMhz, 0,360)
-  //
-  // 	fill(hue, volume*wingSaturationMultiplier, wingBrightness, wingTransparency)
-  //
-  // 	stroke(hue, volume, strokeBaseBrightness - volume/2, strokeTransparency)
-  //   strokeWeight(1)
-  //
-  //   let N = scaledSpectrum.length;
-  //   let mirrorCopy = Array(N)
-  //
-  //
-  //   for (let i=0; i < N; i++) { //N or dadaNode.length
-  //
-  //     let R = headRadius + wingSize * scaledSpectrum[i]
-  //
-  // //insect head alien for playNum 1, pop fpr playNum 0, and stripes for playNum2
-  //     let x = R * sin(radians(i*180+180))
-  //     let y = R * cos(radians(i*180+180))
-  //     drawDot(x,y, i)
-  //     mirrorCopy[N-1-i] = [Math.abs(x),y]
-  //   }
-  //   mirrorCopy.map(([x,y], i)=> drawDot(x,y, N-1-i))
-  //
-  //   function drawDot(x,y, i){
-  //     if( beat.isDetected ){
-  //
-  //       fill(hue, volume*wingSaturationMultiplier, wingBrightness, bnorm(0.8))
-  //
-  //     }
-  //
-  //       if(showRays){
-  //     	strokeWeight(map(scaledSpectrum[i], 0,bnorm(1), 0,dotSize+4))
-  //     	//line(0,0, x,y)
-  //     	strokeWeight(1)
-  //     }
-	//   curveVertex(x,y)
-  // }// end drawDot
-  //
-  //   stroke(hue, volume, strokeBaseBrightness - volume/2, 0.4)
-  //   //  stroke(hue, volume, strokeBaseBrightness - volume/2, 0.4)
-  //   strokeWeight(1)
-  //   endShape(CLOSE)
-  // } // end drawing shapes
+if(activate ==true){
+
+  headRadius = 3
+  let spectrum = fft.analyze()
+
+  // scaledSpectrum is a new, smaller array of more meaningful values
+  let scaledSpectrum = splitOctaves(spectrum, octaves)
+  let volume = max(scaledSpectrum)
+  beat.update(fft)
+
+
+  sign = Math.sign(sign + prevMouseX - mouseX)
+  angle -= sign
+  //prevMouseX = mouseX
+
+  //where to draw
+
+  let posY = map(fft.getCentroid(), startMhz,endMhz, windowHeight,0)
+  posY = max(0,posY)
+  //console.log(posY)
+
+  translate(windowWidth/2,posY)
+
+  rotate(radians(angle))
+
+  { beginShape() // shapes
+
+    /*hue function(frequency)
+    stroke function(volume) */
+  	let hue = map(fft.getCentroid(), startMhz,endMhz, 0,360)
+
+  	fill(hue, volume*wingSaturationMultiplier, wingBrightness, wingTransparency)
+
+  	stroke(hue, volume, strokeBaseBrightness - volume/2, strokeTransparency)
+    strokeWeight(1)
+
+    let N = scaledSpectrum.length;
+    let mirrorCopy = Array(N)
+
+
+    for (let i=0; i < N/2; i++) { //N or dadaNode.length
+
+      let R = headRadius + wingSize * scaledSpectrum[i]
+
+  //insect head alien for playNum 1, pop fpr playNum 0, and stripes for playNum2
+      let x = R * sin(radians(i*180+180))
+      let y = R * cos(radians(i*180/2+180))
+
+
+
+      drawDot(x,y, i)
+      mirrorCopy[N-1-i] = [Math.abs(x),y]
+    }
+    mirrorCopy.map(([x,y], i)=> drawDot(x,y, N-1-i))
+
+    function drawDot(x,y, i){
+      if( beat.isDetected ){
+
+        fill(hue, volume*wingSaturationMultiplier, wingBrightness, bnorm(0.8))
+
+      }
+
+        if(showRays){
+      	strokeWeight(map(scaledSpectrum[i], 0,bnorm(1), 0,dotSize+4))
+      	//line(0,0, x,y)
+      	strokeWeight(1)
+      }
+	  curveVertex(x,y)
+  }// end drawDot
+
+    stroke(hue, volume, strokeBaseBrightness - volume/2, 0.4)
+    //  stroke(hue, volume, strokeBaseBrightness - volume/2, 0.4)
+    strokeWeight(1)
+    endShape(CLOSE)
+  } // end drawing shapes
   //triangle(18,240,180,360,240,18);
 
 

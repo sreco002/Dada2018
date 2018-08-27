@@ -13,8 +13,10 @@
     "express": "^4.16.3",
     "johnny-five": "^0.15.0",
     "p5.serialserver": "0.0.25",
+    "screenfull": "^3.3.2",
     "serialport": "^6.2.0",
     "socket.io": "^2.1.1",
-    "socket.io-stream": "^0.9.1"
+    "socket.io-stream": "^0.9.1",
+    "tracery-grammar": "^2.7.3"
   }
 }
