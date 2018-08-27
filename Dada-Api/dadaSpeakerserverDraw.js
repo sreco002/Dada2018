@@ -74,6 +74,8 @@ console.log(message+ " to "+client +" with the label :  " +label)// which websit
 //EVENT=========================
 io.sockets.on('connection', newConnection);
 
+
+
 //FUNCTIONS
 
 function newConnection(socket){//called by io.sockets.on('connection', newConnection)
@@ -81,16 +83,16 @@ function newConnection(socket){//called by io.sockets.on('connection', newConnec
   console.log('new connection:' + socket.id);//when there is a new connection
   //socket.on(label, drawingMsg);// if there is a message called 'label' trigger this function 'mouseMsg'link between label and function
   socket.on('listening',sensorMsg);
+  socket.on(label,drawingMsg);
 
     function drawingMsg(data){
-    if (receivedData == "Hello") { data.z = 8;}// width ellipse in newDrawing function talkClientV2
-    if (receivedData == "0") {data.z = 1;}
+    if (receivedData == "Hello") { data = 1;}// width ellipse in newDrawing function talkClientV2
+    if (receivedData == "0") {data = 0;}
 
-    console.log(receivedData);// add the received Data from Arduino to the new message
+  //  console.log(receivedData);// add the received Data from Arduino to the new message
     socket.broadcast.emit(label,data);// send back out emit the data received with this label , sent by the client website
     //io.sockets.emit('brush',data); // emit to everyone io.sockets including the sender
-     console.log("emit"+data);// display the data on console
-    //  console.log(message + " number "+ iptr );
+
     }
 
     function sensorMsg(data){
@@ -101,7 +103,16 @@ function newConnection(socket){//called by io.sockets.on('connection', newConnec
     //console.log(receivedData);// add the received Data from Arduino to the new message
     //console.log("server says : " + data);// add the received Data from Arduino to the new message
 
-    io.sockets.emit('listening',data);// send back out emit the data received with this label , sent by the client website
+    // setInterval(function(){
+    //   io.sockets.emit('listening',data);// send back out emit the data received with this label , sent by the client website
+    //
+    // }, 1000);
+
+
+
+     io.sockets.emit('listening',data);// send back out emit the data received with this label , sent by the client website
+     io.sockets.emit(label,data);// send back out emit the data received with this label , sent by the client website
+
     }
 
 }//end newconnection FUNCTIONS

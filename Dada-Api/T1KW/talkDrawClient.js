@@ -19,19 +19,22 @@ var activate;
 
 
 
-
 //global variable for voices
+
+//var countActivate = 0; // how many times before changing voices , smooth?
 let speech;
 let voices, voice;
 let refText, index, sentence,phrase;
 var iptr = 0; // a counter for the sentences
 var v = 0;// a counter for the voices
-var dadaVoices=[0,28,20];// Alex. Moira,Lekha
+//var dadaVoices=[0,28,20];// Alex. Moira,Lekha
+var dadaVoices=[50,28,20];// UK english male. Moira,Lekha
 var dadaNode  = 2;//characters drawing
 let dadaName;
 
 let play = true;
 let playNum = 0;
+var interval;
 //28 Moira 49 Google UK English Female 27 Milena 26 Melina 39 Veena
 //end variables voices
 
@@ -44,10 +47,10 @@ var fftSmooth = 0.95
 var frameSize = 512
 var startMhz = 150
 var endMhz = 12000
-var beatThreshold = 0.8//0.4
+var beatThreshold = 0.9//0.4
 var bpm = 120 //120
 
-var headRadius = 4//4,13
+var headRadius = 13//4,13
 var wingSize = .9//.9
 var dotSize = 4
 
@@ -65,17 +68,18 @@ var angle = 360, sign = 1
 var prevMouseX = 0
 
 
+
 //functions for the sound making
 function bnorm(floatVal, low=0, high=255){return Math.round(floatVal*(high - low))}
 
 //SETUP=================================================
 function setup() {
-  background(0);
+
 
 
   createCanvas(windowWidth, windowHeight)
   colorMode(HSB)
-
+  background(31,14,26);
   //+++++++++++++++set up for server talking and listening
   /*connecting to the server via sockets and reading message with the label=========*/
     socket = io.connect('http://localhost:3000/');//connect to the server at the address, the server is sharing infos
@@ -84,7 +88,9 @@ function setup() {
   //and use it in the function (message, function) ie (label,newDrawing)
 
     socket.on(label,newDrawing);// open the channel label with data from the server
+
     socket.on('listening',newSensorMsg);//another possible message/channel , use data in newSensorMsg
+
     socket.on('listening',dadaDraw);//another possible message/channel , use data in newSensorMsg
     socket.emit('listening',activate);//emitting through the channel 'listening ', sending the message activate, this is done each time mouse is dragged
 
@@ -118,15 +124,24 @@ beat = new p5.PeakDetect(startMhz,endMhz, beatThreshold, 60/(bpm/60))
 
 
   function startSpeaking() {
-  if (playNum==0)  background(20, 100, 50);
-    if (playNum==1)  background(131, 100, 50);
-      if (playNum==2)  background(252, 100, 50);
+  // if (playNum==0)  background(20, 100, 50);
+  //   if (playNum==1)  background(131, 100, 50);
+  //     if (playNum==2)  background(252, 100, 50);
+  v++;
+  if (v==dadaVoices.length) v= 0;// go back to the beginning
 
 
   }
 
   function endSpeaking() {
-    background(0);
+    //background(31,14,26);
+
+
+  if (v==0)  background(20, 100, 50);
+  if (v==1)  background(131, 100, 50);
+  if (v==2)  background(252, 100, 50);
+
+
   }
 
   function voiceReady() {
@@ -141,32 +156,24 @@ beat = new p5.PeakDetect(startMhz,endMhz, beatThreshold, 60/(bpm/60))
 
 
 
-
-
-
 /*===============what to do with the messages received from the server on channels label and listening*/
 function newDrawing(data){ //function getting the data (modified or not) from the server
-console.log("newDrawing");
-  noStroke();
-  fill(255,0,0);//red
-  ellipse(data.x,data.y,data.z,36); // use the new data (shared) on the server
+  dadaDraw(data);
+
 }
 
 function newSensorMsg(activate){// receiving the status of the sensor from server and display it in the browser
-console.log("new message is : "+ activate);
+//console.log("new message is : "+ activate);
+
   if(activate==true){
+
     speech.setRate(0.8);
     speech.setPitch(0.6);
     voices = speech.voices;
+    readText(iptr,v);// read the text with voice from 0 to 2
 
-    readText(iptr,v)// read the text with voice from 0 to 2
-
-    iptr++;
-    v++;
-    if (v==dadaVoices.length) v= 0;// go back to the beginning
-
-    if (iptr==refText.length) iptr= 0;// if we are at the end of dadapoem go back to the beginning, // change here to generate a new DadaStory2.py
-
+    clearInterval(interval)
+    // setInterval(readText(iptr,v), 10000);
 
 
     // if (playNum ==1) {
@@ -186,7 +193,7 @@ console.log("new message is : "+ activate);
 
   }
   else if (activate == false){
-  //background(0,255,0);//blue
+
   speech.cancel();//stop talking
 
 }//end newSensorMsg
@@ -195,70 +202,43 @@ console.log("new message is : "+ activate);
 socket.emit('listening',activate);//listen again through the channel 'listening ', check the activate status,
 
 // noStroke();
-// triangle(18,240,18,360,240,18); // use the new data (shared) on the server
+//triangle(18,240,180,360,240,18); // use the new data (shared) on the server
 
 }//end newSensorMsg
 
 
 
 
-
-
-
-
-
-
-
-
-function dadaTalk() {
-  //this function will be called when the Ping sensor is on > function PingDraw
-
-  // speech.setRate(0.8);
-  // speech.setPitch(0.6);
-  // voices = speech.voices;
-  //
-  // readText(iptr,v)// read the text with voice from 0 to 2
-  //
-  // iptr++;
-  // v++;
-  // if (v==dadaVoices.length) v= 0;// go back to the beginning
-  //
-  // if (iptr==refText.length) iptr= 0;// if we are at the end of dadapoem go back to the beginning, // change here to generate a new DadaStory2.py
-  //
-  //
-  //
-  // if (playNum ==1) {
-  //   play = false
-  //   noLoop();
-  // }
-  //
-  // if ((playNum ==2)||(playNum ==0)) {
-  //   play = true;
-  //   loop();
-  //
-  // }
-  //
-  // //console.log(playNum);
-  // if (playNum==2) playNum =0; else playNum++
-
-
-}//end function
-
-
-
-
 function readText(i,j){
 //readText (refText[i], with dadaVoices[j])
+/* called when function newSensorMsg(activate){// receiving the status of the sensor from server and display it in the browser
+  if(activate==true)
+*/
 
-    console.log(j);
     voice = voices[dadaVoices[(j)]];
-    dadaName = voice.name;
     console.log(voice.name);
-
     speech.setVoice(voice.name);
-    //speech.speak(refText);// reftext with just one voice
     console.log(refText[i]);
     speech.speak(refText[i]);// reftext one by one with a set of voices
+    iptr++;
+    // background(20*v+200, 100, 50);
+  //  setInterval(v++,20000);
+
+  //   interval = setInterval(function changeVoice(){
+  //     v++;
+  // //  background(25, 100, 50);
+  //   fill(180,100,50,50)
+  //   console.log("changeVoice");
+  //   noStroke();
+  //   ellipse(windowWidth/2,windowHeight/2,52,(v+1)*26);}
+  // ,5000);
+
+
+    //
+    // if (v==dadaVoices.length) v= 0;// go back to the beginning
+    //
+    if (iptr==refText.length) iptr= 0;// if we are at the end of dadapoem go back to the beginning, // change here to generate a new DadaStory2.py
+
 
 
 }
@@ -267,91 +247,94 @@ function readText(i,j){
 
 //Draw the shapes in response to sound and breath
 function dadaDraw(activate) {
-  console.log(playNum)
+//  console.log(playNum)
 if(activate ==true){
-  console.log("playNum",playNum)
-  headRadius = random(1,8)
-  let spectrum = fft.analyze()
+ // console.log("activate DadaDraw : "+ playNum);
+  // background(25, 100, 50);
+  // fill(180,100,50,50)
+  // noStroke();
+  // ellipse(windowWidth/2,windowHeight/2,52,(playNum+1)*26);
 
-  // scaledSpectrum is a new, smaller array of more meaningful values
-  let scaledSpectrum = splitOctaves(spectrum, octaves)
-  let volume = max(scaledSpectrum)
-  beat.update(fft)
+  // interval = setInterval(ellipse(windowWidth/2,windowHeight/2,52,(playNum+1)*26),10000);
+  //
+  // headRadius = 3
+  // let spectrum = fft.analyze()
+  //
+  // // scaledSpectrum is a new, smaller array of more meaningful values
+  // let scaledSpectrum = splitOctaves(spectrum, octaves)
+  // let volume = max(scaledSpectrum)
+  // beat.update(fft)
+  //
+  //
+  // sign = Math.sign(sign + prevMouseX - mouseX)
+  // angle -= 30
+  // //prevMouseX = mouseX
+  //
+  // //where to draw
+  //
+  // let posY = map(fft.getCentroid(), startMhz,endMhz, windowHeight,0)
+  // posY = max(0,posY)
+  // //console.log(posY)
+  //
+  // translate(random(windowWidth),posY)
+  //
+  // rotate(radians(angle))
+  //
+  // { beginShape() // shapes
+  //
+  //   /*hue function(frequency)
+  //   stroke function(volume) */
+  // 	let hue = map(fft.getCentroid(), startMhz,endMhz, 0,360)
+  //
+  // 	fill(hue, volume*wingSaturationMultiplier, wingBrightness, wingTransparency)
+  //
+  // 	stroke(hue, volume, strokeBaseBrightness - volume/2, strokeTransparency)
+  //   strokeWeight(1)
+  //
+  //   let N = scaledSpectrum.length;
+  //   let mirrorCopy = Array(N)
+  //
+  //
+  //   for (let i=0; i < N; i++) { //N or dadaNode.length
+  //
+  //     let R = headRadius + wingSize * scaledSpectrum[i]
+  //
+  // //insect head alien for playNum 1, pop fpr playNum 0, and stripes for playNum2
+  //     let x = R * sin(radians(i*180+180))
+  //     let y = R * cos(radians(i*180+180))
+  //     drawDot(x,y, i)
+  //     mirrorCopy[N-1-i] = [Math.abs(x),y]
+  //   }
+  //   mirrorCopy.map(([x,y], i)=> drawDot(x,y, N-1-i))
+  //
+  //   function drawDot(x,y, i){
+  //     if( beat.isDetected ){
+  //
+  //       fill(hue, volume*wingSaturationMultiplier, wingBrightness, bnorm(0.8))
+  //
+  //     }
+  //
+  //       if(showRays){
+  //     	strokeWeight(map(scaledSpectrum[i], 0,bnorm(1), 0,dotSize+4))
+  //     	//line(0,0, x,y)
+  //     	strokeWeight(1)
+  //     }
+	//   curveVertex(x,y)
+  // }// end drawDot
+  //
+  //   stroke(hue, volume, strokeBaseBrightness - volume/2, 0.4)
+  //   //  stroke(hue, volume, strokeBaseBrightness - volume/2, 0.4)
+  //   strokeWeight(1)
+  //   endShape(CLOSE)
+  // } // end drawing shapes
+  //triangle(18,240,180,360,240,18);
 
 
-  sign = Math.sign(sign + prevMouseX - mouseX)
-  angle -= sign
-  //prevMouseX = mouseX
-
-  //where to draw
-  // translate(mouseX,mouseY)
-  //random(windowWidth),random(windowHeight)
-
-  let posY = map(fft.getCentroid(), startMhz,endMhz, windowHeight,0)
-  posY = max(0,posY)
-  //console.log(posY)
-
-
-
-  translate(random(windowWidth),posY)
-
-  rotate(radians(angle))
-   //dadaNode = [2,3,random(3),scaledSpectrum.length] // dada node characters drawing
-
-  { beginShape() // shapes
-
-    /*hue function(frequency)
-    stroke function(volume) */
-  	let hue = map(fft.getCentroid(), startMhz,endMhz, 0,360)
-
-  	fill(hue, volume*wingSaturationMultiplier, wingBrightness, wingTransparency)
-
-  	stroke(hue, volume, strokeBaseBrightness - volume/2, strokeTransparency)
-    strokeWeight(1)
-
-    let N = scaledSpectrum.length;
-    let mirrorCopy = Array(N)
-
-
-    for (let i=0; i < N; i++) { //N or dadaNode.length
-
-      let R = headRadius + wingSize * scaledSpectrum[i]
-
-  //insect head alien for playNum 1, pop fpr playNum 0, and stripes for playNum2
-      let x = R * sin(radians(i*180+180))
-      let y = R * cos(radians(i*180+180))
-
-
-
-      drawDot(x,y, i)
-      mirrorCopy[N-1-i] = [Math.abs(x),y]
-    }
-    mirrorCopy.map(([x,y], i)=> drawDot(x,y, N-1-i))
-
-    function drawDot(x,y, i){
-      if( beat.isDetected ){
-
-        fill(hue, volume*wingSaturationMultiplier, wingBrightness, bnorm(0.8))
-
-      }
-
-        if(showRays){
-      	strokeWeight(map(scaledSpectrum[i], 0,bnorm(1), 0,dotSize+4))
-      	//line(0,0, x,y)
-      	strokeWeight(1)
-      }
-	  curveVertex(x,y)
-  }// end drawDot
-
-    stroke(hue, volume, strokeBaseBrightness - volume/2, 0.4)
-    //  stroke(hue, volume, strokeBaseBrightness - volume/2, 0.4)
-    strokeWeight(1)
-    endShape(CLOSE)
-  } // end drawing shapes
 }
 else {
+  //clearInterval(interval);
 
-  headRadius = 6
+  headRadius = 6// 6
   let spectrum = fft.analyze()
 
   // scaledSpectrum is a new, smaller array of more meaningful values
@@ -391,7 +374,7 @@ else {
     strokeWeight(1)
 
     let N = scaledSpectrum.length;
-    let mirrorCopy = Array(N)
+   let mirrorCopy = Array(N)
 
 
     for (let i=0; i < N; i++) { //N or dadaNode.length
@@ -405,7 +388,7 @@ else {
 
 
       drawDot(x,y, i)
-      mirrorCopy[N-1-i] = [Math.abs(x),y]
+     mirrorCopy[N-1-i] = [Math.abs(x),y]
     }
     mirrorCopy.map(([x,y], i)=> drawDot(x,y, N-1-i))
 
@@ -424,11 +407,12 @@ else {
 	  curveVertex(x,y)
   }// end drawDot
 
-    stroke(hue, volume, strokeBaseBrightness - volume/2, 0.4)
+    stroke(hue, volume, strokeBaseBrightness - volume, 0.4)
     //  stroke(hue, volume, strokeBaseBrightness - volume/2, 0.4)
     strokeWeight(1)
     endShape(CLOSE)
   } // end drawing shapes
+
 }
 //
 // socket.emit('listening',activate);//listen again through the channel 'listening ', check the activate status,
